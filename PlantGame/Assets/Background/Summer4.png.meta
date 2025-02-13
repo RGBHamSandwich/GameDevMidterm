@@ -156,6 +156,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
+=======
+    spriteCustomMetadata:
+      entries: []
+>>>>>>> Beck
     nameFileIdTable:
       Summer4_0: 4254546529058001013
   mipmapLimitGroupName: 

@@ -166,3 +166,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6c5a352167b264a97e8282769df189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveUp:
+  - {fileID: -3966000359813937045, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: 5957607548276453145, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: 7919494252608105734, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: 4186667117407481158, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  MoveDown:
+  - {fileID: 7206364403197834482, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: -6107194117185692799, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: 1979373313, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: 7447479149999566925, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  MoveLeft:
+  - {fileID: 2847966836384453054, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: -4487193418667962481, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: 6565222899093610213, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  - {fileID: -7904224864937566175, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
+  MoveRight: []
+  LayDown: []
+  speed: 3
+  rateOfInteract: 3
