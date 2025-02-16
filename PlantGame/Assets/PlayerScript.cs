@@ -45,6 +45,11 @@ public class PlayerScript : MonoBehaviour
         
         // how do i tell the difference between falling and standing on ground
         
+        if(_layingDown){
+            _playerSpriteRenderer.sprite = LayDown[0];
+            return;
+        }
+
         float horizontal = Input.GetAxis("Horizontal");     // walking
         float vertical = Input.GetAxis("Vertical");         // jumping
 
@@ -74,12 +79,12 @@ public class PlayerScript : MonoBehaviour
         if(Input.GetKey(KeyCode.E) && Time.time - _lastTimeInteract > 1/rateOfInteract){
             _lastTimeInteract = Time.time;
 
-            // if player is near an interactable -> interact
 
             if (_hasPlant){
                 // drop plant
                 _hasPlant = false;
             } else {
+                // if player is near a plant
                 // pick up plant
                 _hasPlant = true;
             }
