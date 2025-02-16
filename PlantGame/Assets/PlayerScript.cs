@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [Header("Movement")]
+    public Sprite Standing;
     public Sprite[] MoveUp;
     public Sprite[] MoveDown;
     public Sprite[] Walk;
@@ -43,7 +44,7 @@ public class PlayerScript : MonoBehaviour
         // LOAD A "MOVE DOWN" SPRITE AND LAYING DOWN SPRITES SEPARATELY
         // use _isLayingDown to determine if player is laying down
         
-        // how do i tell the difference between falling and standing on ground
+        // how do i tell the difference between falling and laying down?
         
         if(_layingDown){
             _playerSpriteRenderer.sprite = LayDown[0];
@@ -59,10 +60,12 @@ public class PlayerScript : MonoBehaviour
         transform.position += Vector3.right * horizontal * speed * Time.deltaTime;
         transform.position += Vector3.up * vertical * speed * Time.deltaTime;
 
+        currentFrameIndex = 0;
+
         // edit sprite based on movement
-        if(vertical > 0){
-            _playerSpriteRenderer.sprite = MoveUp[0];
-        } else if(vertical < 0){
+        if(vertical > 0){           // if jumping
+            _playerSpriteRenderer.sprite = MoveUp[0];   // default for bugtesting
+        } else if(vertical < 0){    // laying down
             _playerSpriteRenderer.sprite = MoveDown[0];
         } else if(horizontal > 0){
             // flip sprite
@@ -73,6 +76,29 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
+
+        // IDEA BUBBLE FOR ANIMATION
+        // JUMPING
+    // if(vertical > 0){           // if jumping
+    //     // _playerSpriteRenderer.sprite = MoveUp[0];   // default for bugtesting
+    //     if(currentFrameIndex >= frames.Length){ // if we reach the end of the animation
+    //     currentFrameIndex--;
+    //         while(currentFrameIndex >= 0) {      // reverse to the first frame
+    //             _playerSpriteRenderer.sprite = MoveUp[currentFrameIndex];
+    //             currentFrameIndex--;
+    //         }
+    //         _playerSpriteRenderer.sprite = Standing; // reset to the neutral frame
+    //     }
+    //     else{   // if we haven't reached the end of the animation
+    //         _playerSpriteRenderer.sprite = MoveUp[currentFrameIndex];
+    //         currentFrameIndex++;
+    //     }   
+    // }
+
+        // How do I mimic the animation found in explosion.cs for the spaceship game? (without bogging down our update function)
+
+
+
 
     private void HandleInteract(){
         // if interact button is pressed
