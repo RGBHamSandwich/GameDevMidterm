@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7ee080c6f03384ef0888c6189dca0012
+guid: dfacc5c264b98461eb7d84e43367dd86
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6711823074484963789
-    second: Plant Game-6_0
+      213: 1137245353877890784
+    second: Plant Game-7_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plant Game-6_0
+      name: Plant Game-7_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc942f5868f252d50800000000000000
-      internalID: 6711823074484963789
+      spriteID: 0e6ea5cbf9e48cf00800000000000000
+      internalID: 1137245353877890784
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Plant Game-6_0: 6711823074484963789
+      Plant Game-7_0: 1137245353877890784
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
