@@ -171,26 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6288413599318226233, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
-      propertyPath: Walk.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6288413599318226233, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
-      propertyPath: 'Walk.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2847966836384453054, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
-    - target: {fileID: 6288413599318226233, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
-      propertyPath: 'Walk.Array.data[1]'
-      value: 
-      objectReference: {fileID: -4487193418667962481, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
-    - target: {fileID: 6288413599318226233, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
-      propertyPath: 'Walk.Array.data[2]'
-      value: 
-      objectReference: {fileID: 6565222899093610213, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
-    - target: {fileID: 6288413599318226233, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
-      propertyPath: 'Walk.Array.data[3]'
-      value: 
-      objectReference: {fileID: -7904224864937566175, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

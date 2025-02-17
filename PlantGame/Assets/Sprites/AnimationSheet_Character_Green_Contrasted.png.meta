@@ -1153,7 +1153,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 9.1
+      name: Cloak_Neutral
       rect:
         serializedVersion: 2
         x: 6
@@ -1389,7 +1389,6 @@ TextureImporter:
       8.4: -667487755
       8.7: -1327018930375081307
       8.8: 4849785888478957232
-      9.1: 5239280543401401523
       9.2: -4456430220742362726
       9.5: 3098073262381563080
       9.6: 3383337698867470231
@@ -1404,6 +1403,7 @@ TextureImporter:
       Cloak_LayDown1: 7206364403197834482
       Cloak_LayDown2: -6107194117185692799
       Cloak_LayDown4: 7447479149999566925
+      Cloak_Neutral: 5239280543401401523
       Cloak_Standing: 8938569553004278811
       Cloak_Teleport1: 2449380558829596666
       Cloak_Teleport2: -3432362981164557910
