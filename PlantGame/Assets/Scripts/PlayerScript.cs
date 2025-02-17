@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     public Sprite[] Walk;
     public Sprite[] LayDown;
     public float framesPerSecond = 4;
+    public float thrust = 1f;
+    public float jumpWaitTime = 1f;
     float frameTimer = 0;
     int currentFrameIndex = 0;
 
@@ -17,6 +20,10 @@ public class PlayerScript : MonoBehaviour
     public float speed = 3;
 	[Tooltip("How fast is the player able to pick up items?")]
     public float rateOfInteract = 3;
+    [Header("Ground Checking")]
+    [SerializeField] private Transform boxCheckPivot;
+    [SerializeField] private float boxCheckSize = 1;
+    [SerializeField] private LayerMask groundLayer;
     private float _lastTimeInteract = 1;
     private float _lastTimeJump = 1;
     private bool _hasPlant = false;
@@ -24,12 +31,32 @@ public class PlayerScript : MonoBehaviour
     private SpriteRenderer _playerSpriteRenderer;
     private Rigidbody2D _playerRigidbody;
 
+    ///// COROUTINES /////
+    private IEnumerator _jumpCoroutine;
+    private bool _isGrounded = true;
+
+    ///// DELEGATES /////
+    public delegate void OnPlayerMovement(Vector2 movement);
+    public static OnPlayerMovement EOnPlayerMovement;
+    public delegate void OnPickup();
+    public static OnPickup EOnPickup;
+
+    /////            /////
+
+    private void OnDrawGizmosSelected(){
+        if(boxCheckPivot == null) return;
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(boxCheckPivot.position, Vector3.one * boxCheckSize);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _playerSpriteRenderer = GetComponent<SpriteRenderer>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
+
+        // StartCoroutine(_jumpCoroutine(jumpWaitTime));
     }
 
     // Update is called once per frame
@@ -37,6 +64,7 @@ public class PlayerScript : MonoBehaviour
     {
         frameTimer -= Time.deltaTime;
 
+        CheckIfGrounded();
         // if(_layingDown){
         //     // check for stand up
         //     if (Input.GetAxis("Vertical") > 0) {
@@ -52,27 +80,14 @@ public class PlayerScript : MonoBehaviour
     
     private void HandleMovement(){
 
-        // LAYING DOWN IS A NEW MECHANIC
-        // LOAD A "MOVE DOWN" SPRITE AND LAYING DOWN SPRITES SEPARATELY
-        // use _isLayingDown to determine if player is laying down
-        
-        // how do i tell the difference between falling and standing on ground
-        
-        // if(_layingDown){
-        //     _playerSpriteRenderer.sprite = LayDown[0];
-        //     return;
-        // }
-
         float horizontal = Input.GetAxis("Horizontal"); 
         float vertical = Input.GetAxis("Vertical");
 
-        Debug.Log("horizontal: " + horizontal);
         transform.position += Vector3.right * horizontal * speed * Time.deltaTime;
 
-        // edit sprite based on movement
-        if(vertical > 0 && Time.time - _lastTimeJump > 1/rateOfInteract){  // jump as long as we haven't jumped recently
+        if(vertical > 0 && _isGrounded){  // jump as long as we haven't jumped recently
             // _playerSpriteRenderer.sprite = MoveUp[0];
-            transform.position += Vector3.up * vertical * speed * Time.deltaTime;               //////////////////////////////////////////////// Can I put this here????
+            transform.position += Vector3.up * vertical * speed * Time.deltaTime;
             HandleJump();
         } else if(vertical < 0){            // stretch goal: limit movement until player presses jump (to stand up)
             _layingDown = true;
@@ -88,6 +103,11 @@ public class PlayerScript : MonoBehaviour
             HandleWalk();
         }
 
+        if(Input.GetKey(KeyCode.E) && Time.time - _lastTimeInteract > 1/rateOfInteract){
+            _lastTimeInteract = Time.time;
+            if(EOnPickup != null) EOnPickup.Invoke();
+        }
+
     }
 
     private void HandleJump(){  // stolen from explosion.cs in Shootemup
@@ -100,6 +120,7 @@ public class PlayerScript : MonoBehaviour
             frameTimer = (1f / framesPerSecond);
             _playerSpriteRenderer.sprite = MoveUp[currentFrameIndex];
         }
+        _playerRigidbody.AddForce(transform.up * thrust, ForceMode2D.Impulse);
     }
 
     private void HandleWalk() {
@@ -126,7 +147,6 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-
     private void HandleInteract(){
         // if interact button is pressed
         if(Input.GetKey(KeyCode.E) && Time.time - _lastTimeInteract > 1/rateOfInteract){
@@ -141,10 +161,16 @@ public class PlayerScript : MonoBehaviour
                 // pick up plant
                 _hasPlant = true;
             }
+
+            if(EOnPickup != null) EOnPickup.Invoke();
         
             // CUE INTERACTION SOUNDS (plant sounds or interact sound?)
         
         }
+    }
+
+    private void CheckIfGrounded(){
+        _isGrounded = Physics2D.OverlapBox(boxCheckPivot.position, Vector3.one * boxCheckSize, 0, groundLayer);
     }
 
 }

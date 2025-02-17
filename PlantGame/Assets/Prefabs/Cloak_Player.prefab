@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5955353901452986167}
   - component: {fileID: 1554340874035929640}
   - component: {fileID: 6288413599318226233}
+  - component: {fileID: -6712333700793926521}
+  - component: {fileID: 8298822583626403605}
   m_Layer: 0
   m_Name: Cloak_Player
   m_TagString: Untagged
@@ -188,5 +190,40 @@ MonoBehaviour:
   - {fileID: 1979373313, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
   - {fileID: 7447479149999566925, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
   framesPerSecond: 4
+  thrust: 0.01
   speed: 3
   rateOfInteract: 3
+--- !u!95 &-6712333700793926521
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a0d8c8af48c9cf45a139c2ce2b50f7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8298822583626403605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3d7f0903876374da74a6797c4fca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
