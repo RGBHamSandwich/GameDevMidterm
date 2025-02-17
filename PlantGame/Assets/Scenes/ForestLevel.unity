@@ -718,11 +718,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c901cfa2a0e46e45b407bdb42bbcc06, type: 3}
---- !u!1 &1908894861 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4692524882870045160, guid: fcc7c1b919be01f49956038784a2a2ad, type: 3}
-  m_PrefabInstance: {fileID: 545259586104039015}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2135523119
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +730,6 @@ GameObject:
   - component: {fileID: 2135523121}
   - component: {fileID: 2135523120}
   - component: {fileID: 2135523125}
-  - component: {fileID: 2135523124}
   - component: {fileID: 2135523123}
   m_Layer: 0
   m_Name: Main Camera
@@ -831,24 +825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 237840736}
---- !u!114 &2135523124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2135523119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae9c997fb122b7f4fb1111acfb812873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bush: {fileID: 3292434973700689744, guid: 7fad2748541c2ba40a23f7d94b83f661, type: 3}
-  Branch: {fileID: 2018171373548668755, guid: 0c88ba62c130dc34696b52d58aa41173, type: 3}
-  SpawnTimer: 0
-  distanceMin: 1
-  distanceMax: 3
-  Background: {fileID: 1908894861}
 --- !u!114 &2135523125
 MonoBehaviour:
   m_ObjectHideFlags: 0
