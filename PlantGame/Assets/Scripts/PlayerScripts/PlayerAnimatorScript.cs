@@ -9,7 +9,7 @@ public class PlayerAnimator : MonoBehaviour
     void Start()
     {
         // PlayerScript.EOnPlayerMovement += HandlePlayerMovement;
-        PlayerScript.EOnPickup += HandlePickup;
+        // PlayerInteractPlantScript.EOnPickUp += HandlePickUp;
         
     }
 
@@ -18,7 +18,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         
     }
-    private void HandlePickup(){
+    private void HandlePickUp(){
         // _playerAnimator.SetTrigger("Pickup");
     }
 

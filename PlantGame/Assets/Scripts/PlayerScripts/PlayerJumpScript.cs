@@ -15,7 +15,6 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     ///// PRIVATE VARIABLES /////
-    private SpriteRenderer _playerSpriteRenderer;
     private Rigidbody2D _playerRigidbody;
 
     ///// COROUTINES /////
@@ -34,7 +33,6 @@ public class PlayerJump : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _playerSpriteRenderer = GetComponent<SpriteRenderer>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
     }
 
