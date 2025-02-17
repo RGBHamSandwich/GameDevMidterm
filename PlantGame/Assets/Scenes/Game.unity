@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 798077982}
   - component: {fileID: 798077981}
   - component: {fileID: 798077979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TestGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}

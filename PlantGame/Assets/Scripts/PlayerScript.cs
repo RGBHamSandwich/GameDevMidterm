@@ -10,7 +10,9 @@ public class PlayerScript : MonoBehaviour
     public Sprite[] Walk;
     public Sprite[] LayDown;
     public float framesPerSecond = 4;
-    public float thrust = 1f;
+    [Tooltip("How much force is applied to the player when they jump?")]
+    public float thrust = .01f;
+    [Tooltip("How long does the player have to wait before jumping again?")]
     public float jumpWaitTime = 1f;
     float frameTimer = 0;
     int currentFrameIndex = 0;
@@ -41,7 +43,7 @@ public class PlayerScript : MonoBehaviour
     public delegate void OnPickup();
     public static OnPickup EOnPickup;
 
-    /////            /////
+    ///// METHODS /////
 
     private void OnDrawGizmosSelected(){
         if(boxCheckPivot == null) return;
@@ -65,17 +67,11 @@ public class PlayerScript : MonoBehaviour
         frameTimer -= Time.deltaTime;
 
         CheckIfGrounded();
-        // if(_layingDown){
-        //     // check for stand up
-        //     if (Input.GetAxis("Vertical") > 0) {
-        //         _layingDown = false;
-        //         _playerSpriteRenderer.sprite = Neutral;
-        //     }
-        //     else {
-                HandleMovement();
-                HandleInteract();
-            // }
-        // }
+
+        HandleMovement();
+        HandleJump();
+        HandleInteract();
+
     }
     
     private void HandleMovement(){
@@ -87,7 +83,7 @@ public class PlayerScript : MonoBehaviour
 
         if(vertical > 0 && _isGrounded){  // jump as long as we haven't jumped recently
             // _playerSpriteRenderer.sprite = MoveUp[0];
-            transform.position += Vector3.up * vertical * speed * Time.deltaTime;
+            // transform.position += Vector3.up * vertical * speed * Time.deltaTime;
             HandleJump();
         } else if(vertical < 0){            // stretch goal: limit movement until player presses jump (to stand up)
             _layingDown = true;
@@ -111,16 +107,22 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void HandleJump(){  // stolen from explosion.cs in Shootemup
-        if (frameTimer <= 0){
-            currentFrameIndex++;
-            if (currentFrameIndex >= MoveUp.Length){
-                currentFrameIndex = 0;
-                _playerSpriteRenderer.sprite = Neutral;
+        if(Input.GetKeyDown(KeyCode.W) && _isGrounded){
+            _isGrounded = false;
+            _jumpCoroutine = JumpCoroutine(jumpWaitTime);
+
+            _lastTimeJump = Time.time;
+            _playerRigidbody.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+            if (frameTimer <= 0){
+                currentFrameIndex++;
+                if (currentFrameIndex >= MoveUp.Length){
+                    currentFrameIndex = 0;
+                    _playerSpriteRenderer.sprite = Neutral;
+                }
+                frameTimer = (1f / framesPerSecond);
+                _playerSpriteRenderer.sprite = MoveUp[currentFrameIndex];
             }
-            frameTimer = (1f / framesPerSecond);
-            _playerSpriteRenderer.sprite = MoveUp[currentFrameIndex];
         }
-        _playerRigidbody.AddForce(transform.up * thrust, ForceMode2D.Impulse);
     }
 
     private void HandleWalk() {
@@ -171,6 +173,11 @@ public class PlayerScript : MonoBehaviour
 
     private void CheckIfGrounded(){
         _isGrounded = Physics2D.OverlapBox(boxCheckPivot.position, Vector3.one * boxCheckSize, 0, groundLayer);
+    }
+
+    private IEnumerator JumpCoroutine(float waitTime){
+        yield return new WaitForSeconds(waitTime);
+        _isGrounded = true;
     }
 
 }
