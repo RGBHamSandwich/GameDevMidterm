@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 5955353901452986167}
   - component: {fileID: 1554340874035929640}
   - component: {fileID: 6288413599318226233}
+  - component: {fileID: -6712333700793926521}
+  - component: {fileID: 8298822583626403605}
+  - component: {fileID: -5057832746834395521}
+  - component: {fileID: -7532671550078784537}
   m_Layer: 0
   m_Name: Cloak_Player
   m_TagString: Untagged
@@ -32,7 +36,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7027542037486206366}
+  - {fileID: 6739969125075034845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7315575321419804797
@@ -187,6 +193,137 @@ MonoBehaviour:
   - {fileID: -6107194117185692799, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
   - {fileID: 1979373313, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
   - {fileID: 7447479149999566925, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
-  framesPerSecond: 4
   speed: 3
+--- !u!95 &-6712333700793926521
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a0d8c8af48c9cf45a139c2ce2b50f7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8298822583626403605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3d7f0903876374da74a6797c4fca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5057832746834395521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b705b74e468e37f4f8ed0fc0f4cc9528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
+  jumpWaitTime: 1
+  boxCheckPivot: {fileID: 7027542037486206366}
+  boxCheckSize: 0.6
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &-7532671550078784537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90f765d474739c49af8621bfc07a285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rateOfInteract: 3
+  plantCheckPivot: {fileID: 6739969125075034845}
+  plantCheckSize: 1.5
+  plantLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!1 &3563822258275146498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6739969125075034845}
+  m_Layer: 0
+  m_Name: PlantCheckPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6739969125075034845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3563822258275146498}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2346488425714944806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8564146860889033457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7027542037486206366}
+  m_Layer: 0
+  m_Name: GroundCheckPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7027542037486206366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564146860889033457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2346488425714944806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
