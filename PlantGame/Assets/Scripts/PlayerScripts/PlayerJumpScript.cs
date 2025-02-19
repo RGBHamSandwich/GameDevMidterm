@@ -51,13 +51,16 @@ namespace PlantGame.Player
 
         private void HandleJump()
         {
-            if((Input.GetKeyDown(KeyCode.W) | (Input.GetKeyDown(KeyCode.Space))) && _isGrounded) 
-            {
-                _isGrounded = false;
-                StartCoroutine(JumpCoroutine(jumpWaitTime));
-                _playerRigidbody.AddForce(transform.up * thrust, ForceMode2D.Impulse);
-                
-                EOnPlayerJump?.Invoke();
+            if(Input.GetKeyDown(KeyCode.W) | (Input.GetKeyDown(KeyCode.Space))) {
+                Debug.Log("Jump Key Pressed");
+                if(_isGrounded) 
+                {
+                    _isGrounded = false;
+                    StartCoroutine(JumpCoroutine(jumpWaitTime));
+                    _playerRigidbody.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+                    
+                    EOnPlayerJump?.Invoke();
+                }
             }
         }
 
@@ -70,6 +73,7 @@ namespace PlantGame.Player
         private void CheckIfGrounded()
         {
             _isGrounded = Physics2D.OverlapBox(boxCheckPivot.position, Vector3.one * boxCheckSize, 0, groundLayer);
+            print(_isGrounded);
         }
     }
 }
