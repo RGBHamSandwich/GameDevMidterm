@@ -55,3 +55,9 @@ namespace PlantGame.Player
 
     }
 }
+
+
+
+
+// # move bushes closer - test jumping
+// # fix ground detection (smaller width)
