@@ -8,13 +8,14 @@ public class PauseMenu : MonoBehaviour
     
     void Start()
     {
+        Time.timeScale = 1;
         MenuPanel.SetActive(false);
         PausePanel.SetActive(true);
         ConfirmPanel.SetActive(false);
     }
 
     void Update(){
-        if (Input.GetKey("escape"))
+        if (Input.GetKeyDown("escape"))
         {
             ShowMenuPanel();
         }
