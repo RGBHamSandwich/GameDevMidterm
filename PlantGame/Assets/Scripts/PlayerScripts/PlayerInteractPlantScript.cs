@@ -25,6 +25,7 @@ namespace PlantGame.Player
         private IEnumerator _pickUpCoroutine;
         private bool _isPlantNearby = false;
         private bool _canPlant = true;
+        private GameObject _plant;
 
         ///// DELEGATES /////
         public delegate void OnPickUp();
@@ -54,7 +55,7 @@ namespace PlantGame.Player
 
         private void HandleInteract() 
         {
-            if(Input.GetKey(KeyCode.E) && !_hasPlant)
+            if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && !_hasPlant)
             {
                 //////////////////////////////////////////////////////// HOW DO WE MAKE SURE THE PLAYER ONLY PICKS UP ONE PLANT IF TWO ARE NEARBY?
                 if(_isPlantNearby && _canPlant)
@@ -63,6 +64,10 @@ namespace PlantGame.Player
                     StartCoroutine(PickUpCoroutine(rateOfInteract));
 
                     // pick up plant
+                    PlantScript plantScript = _plant.GetComponent<PlantScript>();
+                    plantScript.PickMeUp();
+
+                    // use the 0 index of the plants detected by the overlap box?
                     _hasPlant = true;
                     Debug.Log("Player picked up a plant");
 
@@ -73,7 +78,7 @@ namespace PlantGame.Player
                     // Debug.Log("No plant nearby or player not ready to pick up again");
                 }
             }
-            else if(Input.GetKey(KeyCode.E) && _hasPlant && _canPlant)
+            else if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && _hasPlant && _canPlant)
             {
                 // if (greenhouse space is nearby) 
                 // { 
@@ -85,6 +90,9 @@ namespace PlantGame.Player
                     StartCoroutine(PickUpCoroutine(rateOfInteract));
 
                     // put plant down
+                    PlantScript plantScript = _plant.GetComponent<PlantScript>();
+                    plantScript.PutMeDown();
+
                     _hasPlant = false;
 
                     Debug.Log("No greenhouse nearby; putting plant on ground"); 
@@ -101,6 +109,10 @@ namespace PlantGame.Player
         private void CheckIfPlantNearby()
         {
             _isPlantNearby = Physics2D.OverlapBox(plantCheckPivot.position, Vector3.one * plantCheckSize, 0, plantLayer);
+            if(_isPlantNearby)
+            {
+                _plant = Physics2D.OverlapBox(plantCheckPivot.position, Vector3.one * plantCheckSize, 0, plantLayer).gameObject;
+            }
         }
     }
 }
