@@ -15,9 +15,13 @@ public class CameraFollow : MonoBehaviour
 
     public void FollowCameraTargetHorizontally()
     {
-        if (cameraTarget.position.x < 2)
+        if (cameraTarget.position.x < 3)
         {
             return;
+        }
+        if (Mathf.Abs(cameraTarget.position.x - transform.position.x) < .05)
+        {
+            return; // Don't spawn if the camera is almost in the target's position
         }
 
         Vector3 targetPosition = transform.position;
@@ -39,7 +43,7 @@ public class CameraFollow : MonoBehaviour
             spawnTimer = 0.0f;
             Vector3 randomPosition = new Vector3(
                 Random.Range(cameraTarget.position.x - 10, cameraTarget.position.x + 10),
-                17,
+                16,
                 0
             );
             Instantiate(leafPrefab, randomPosition, Quaternion.identity);
