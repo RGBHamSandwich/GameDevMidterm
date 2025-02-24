@@ -97,9 +97,8 @@ public class TeleportHomeScript : MonoBehaviour
     private IEnumerator LoadSceneCoroutine()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-
         SceneManager.LoadScene(GreenhouseSceneName, LoadSceneMode.Single);
-
+        this.transform.position = teleportTargetPosition;
         SceneManager.UnloadSceneAsync(currentScene); 
 
         yield return null;
