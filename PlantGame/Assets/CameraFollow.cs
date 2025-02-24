@@ -39,7 +39,7 @@ public class CameraFollow : MonoBehaviour
             spawnTimer = 0.0f;
             Vector3 randomPosition = new Vector3(
                 Random.Range(cameraTarget.position.x - 10, cameraTarget.position.x + 10),
-                11,
+                17,
                 0
             );
             Instantiate(leafPrefab, randomPosition, Quaternion.identity);
