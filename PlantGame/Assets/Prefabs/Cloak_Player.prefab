@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -5057832746834395521}
   - component: {fileID: -7532671550078784537}
   - component: {fileID: 4965306359749979685}
+  - component: {fileID: 6301119647339076702}
   m_Layer: 0
   m_Name: Cloak_Player
   m_TagString: Player
@@ -260,12 +261,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportTargetPosition: {x: 14, y: -10, z: 0}
   GreenhouseSceneName: greenhouse
-  plantPrefab: {fileID: 0}
   teleporterCheckPivot: {fileID: 7267456748173999915}
   teleporterCheckSize: 2
   teleporterLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
+--- !u!114 &6301119647339076702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050cd8013405e4acab4ceda2db11c96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3563822258275146498
 GameObject:
   m_ObjectHideFlags: 0

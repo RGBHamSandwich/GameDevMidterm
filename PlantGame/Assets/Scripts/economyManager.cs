@@ -13,13 +13,15 @@ public class economyManager : MonoBehaviour
 {
     public ShopItem[] itemsForSale;
 
-    // public int getPrice(String item){
-    //     foreach (ShopItem i in itemsForSale){
-    //         if (i.CompareTag(item)){
-
-    //         }
-    //     }
-    // }
+    public int GetPrice(String item){
+        int price = 0;
+        foreach (ShopItem i in itemsForSale){
+            if (i.furniture.CompareTag(item)){
+                price = i.price;
+            }
+        }
+        return price;
+    }
 
     // int balance;
     
