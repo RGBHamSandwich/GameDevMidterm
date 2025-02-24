@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -20,7 +21,12 @@ public class PauseMenu : MonoBehaviour
     void Update(){
         if (Input.GetKeyDown("escape"))
         {
-            ShowMenuPanel();
+            if(MenuPanel.activeSelf == false){
+                ShowMenuPanel();
+            }
+            else{
+                close();
+            }
         }
     }
 
@@ -35,7 +41,8 @@ public class PauseMenu : MonoBehaviour
 
      public void exit(){
         // Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
+        SceneManager.LoadScene("opening menu");
      }
 
 
@@ -51,6 +58,7 @@ public class PauseMenu : MonoBehaviour
         MenuPanel.SetActive(false);
         PausePanel.SetActive(true);
         ConfirmPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
         Time.timeScale = 1;
      }
 
