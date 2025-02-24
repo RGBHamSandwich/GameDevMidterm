@@ -52,7 +52,6 @@ namespace PlantGame.Player
         private void HandleJump()
         {
             if(Input.GetKeyDown(KeyCode.W) | (Input.GetKeyDown(KeyCode.UpArrow))) {
-                // Debug.Log("Jump Key Pressed");
                 if(_isGrounded) 
                 {
                     _isGrounded = false;
@@ -73,7 +72,6 @@ namespace PlantGame.Player
         private void CheckIfGrounded()
         {
             _isGrounded = Physics2D.OverlapBox(boxCheckPivot.position, Vector3.one * boxCheckSize, 0, groundLayer);
-            // print(_isGrounded);
         }
     }
 }
