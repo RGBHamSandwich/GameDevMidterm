@@ -34,7 +34,8 @@ public class PauseMenu : MonoBehaviour
      }
 
      public void exit(){
-        Application.Quit();
+        // Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
      }
 
 
