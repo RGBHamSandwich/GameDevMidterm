@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlantScript : MonoBehaviour
 {
+    public GameObject plantPrefab;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,5 +32,11 @@ public class PlantScript : MonoBehaviour
     public void PutMeDown()
     {
         transform.SetParent(null);
+        
+        GameObject plantHolder = GameObject.Find("PlantHolder");
+        if (plantHolder != null)
+        {
+            transform.SetParent(plantHolder.transform);
+        }
     }
 }
