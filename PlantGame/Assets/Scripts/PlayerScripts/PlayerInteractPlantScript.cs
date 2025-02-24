@@ -16,34 +16,41 @@ namespace PlantGame.Player
         ///// PRIVATE VARIRABLES  /////
         private bool _hasPlant = false;
         private Rigidbody2D _playerRigidbody;
+        private bool _isPlantNearby = false;
+        private bool _canInteractPlant = true;
+        private GameObject _plant;
+        private static GameObject _currentPlantPrefab;
+
+        ///// COROUTINES /////
+        private IEnumerator _pickUpCoroutine;
 
         ///// DELEGATES /////
         public delegate void OnPlayerInteractPlant();
         public static OnPlayerInteractPlant EOnPlayerInteractPlant;
-
-        ///// COROUTINES /////
-        private IEnumerator _pickUpCoroutine;
-        private bool _isPlantNearby = false;
-        private bool _canPlant = true;
-        private GameObject _plant;
-
-        ///// DELEGATES /////
-        public delegate void OnPickUp();
-        public static OnPickUp EOnPickUp;
 
         ///// METHODS /////
         private void OnDrawGizmosSelected()
         {
             if(plantCheckPivot == null) return;
 
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(plantCheckPivot.position, Vector3.one * plantCheckSize);
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireCube(plantCheckPivot.position, 
+                Vector3.one * plantCheckSize
+                );
         }
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _playerRigidbody = GetComponent<Rigidbody2D>();
+
+            if(_currentPlantPrefab != null)
+            {
+                _plant = Instantiate(_currentPlantPrefab, transform.position, Quaternion.identity);
+                PlantScript plantScript = _plant.GetComponent<PlantScript>();
+                plantScript.PickMeUp();
+                _hasPlant = true;
+            }
         }
 
         // Update is called once per frame
@@ -57,28 +64,22 @@ namespace PlantGame.Player
         {
             if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && !_hasPlant)
             {
-                //////////////////////////////////////////////////////// HOW DO WE MAKE SURE THE PLAYER ONLY PICKS UP ONE PLANT IF TWO ARE NEARBY?
-                if(_isPlantNearby && _canPlant)
+                if(_isPlantNearby && _canInteractPlant)
                 {
-                    _canPlant = false;
+                    _canInteractPlant = false;
                     StartCoroutine(PickUpCoroutine(rateOfInteract));
 
-                    // pick up plant
                     PlantScript plantScript = _plant.GetComponent<PlantScript>();
                     plantScript.PickMeUp();
+                    _currentPlantPrefab = _plant;
 
-                    // use the 0 index of the plants detected by the overlap box?
                     _hasPlant = true;
                     Debug.Log("Player picked up a plant");
 
                     EOnPlayerInteractPlant?.Invoke();
                 }
-                else
-                {
-                    // Debug.Log("No plant nearby or player not ready to pick up again");
-                }
             }
-            else if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && _hasPlant && _canPlant)
+            else if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && _hasPlant && _canInteractPlant)
             {
                 // if (greenhouse space is nearby) 
                 // { 
@@ -86,12 +87,13 @@ namespace PlantGame.Player
                 // }
                 // else 
                 // { 
-                    _canPlant = false;
+                    _canInteractPlant = false;
                     StartCoroutine(PickUpCoroutine(rateOfInteract));
 
                     // put plant down
                     PlantScript plantScript = _plant.GetComponent<PlantScript>();
                     plantScript.PutMeDown();
+                    _currentPlantPrefab = null;
 
                     _hasPlant = false;
 
@@ -103,15 +105,27 @@ namespace PlantGame.Player
         private IEnumerator PickUpCoroutine(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
-            _canPlant = true;
+            _canInteractPlant = true;
         }
 
         private void CheckIfPlantNearby()
         {
-            _isPlantNearby = Physics2D.OverlapBox(plantCheckPivot.position, Vector3.one * plantCheckSize, 0, plantLayer);
-            if(_isPlantNearby)
+
+            Collider2D[] _nearbyPlants = Physics2D.OverlapBoxAll(
+                plantCheckPivot.position, 
+                Vector3.one * plantCheckSize, 
+                0, 
+                plantLayer
+                );
+            
+            if(_nearbyPlants.Length > 0)
             {
-                _plant = Physics2D.OverlapBox(plantCheckPivot.position, Vector3.one * plantCheckSize, 0, plantLayer).gameObject;
+                _isPlantNearby = true;
+                _plant = _nearbyPlants[0].gameObject;
+            }
+            else
+            {
+                _isPlantNearby = false;
             }
         }
     }
