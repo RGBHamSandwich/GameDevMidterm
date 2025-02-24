@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: blue bed for shop
       objectReference: {fileID: 0}
+    - target: {fileID: 858730023403921482, guid: c5bb508790591465cb08b14d5a698e44, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.764
+      objectReference: {fileID: 0}
+    - target: {fileID: 858730023403921482, guid: c5bb508790591465cb08b14d5a698e44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.978
+      objectReference: {fileID: 0}
+    - target: {fileID: 858730023403921482, guid: c5bb508790591465cb08b14d5a698e44, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.469
+      objectReference: {fileID: 0}
+    - target: {fileID: 858730023403921482, guid: c5bb508790591465cb08b14d5a698e44, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.683
+      objectReference: {fileID: 0}
     - target: {fileID: 4385013266331858661, guid: c5bb508790591465cb08b14d5a698e44, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -68,6 +84,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7207908139535670489, guid: c5bb508790591465cb08b14d5a698e44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3737002210768999271, guid: a1b298db27acf4e4a852eb1eb54b4695, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

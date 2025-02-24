@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8110637622570403201}
   - component: {fileID: -6283492691654100337}
   - component: {fileID: -5582267562835124357}
-  m_Layer: 0
+  - component: {fileID: 215577147427937128}
+  m_Layer: 8
   m_Name: Sprout
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.97644, y: 3.97644, z: 0.99411}
+  m_LocalScale: {x: 3, y: 3, z: 0.99411}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -143,3 +144,15 @@ PolygonCollider2D:
       - {x: 0.095, y: 0.044999998}
       - {x: 0.055, y: 0.125}
   m_UseDelaunayMesh: 0
+--- !u!114 &215577147427937128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117694716489849629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f37ebcc5f5dd64d911d3b853ac732d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

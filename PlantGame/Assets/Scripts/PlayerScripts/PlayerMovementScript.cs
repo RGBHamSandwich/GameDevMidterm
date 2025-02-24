@@ -39,20 +39,6 @@ namespace PlantGame.Player
             transform.position += Vector3.right * horizontal * speed * Time.deltaTime;
             
             EOnPlayerMovement?.Invoke(Vector2.right * horizontal);
-
-            // if(vertical < 0){            // stretch goal: limit movement until player presses jump (to stand up)
-                // _layingDown = true;
-                // _playerSpriteRenderer.sprite = MoveDown[0];
-                // HandleLayingDown();
-            // } else if(horizontal > 0){
-                // _playerSpriteRenderer.flipX = false;
-                // _playerSpriteRenderer.sprite = Walk[0];
-                // HandleWalk();
-            // } else if(horizontal < 0){
-                // _playerSpriteRenderer.flipX = true;
-                // _playerSpriteRenderer.sprite = Walk[0];
-                // HandleWalk();
-            // }
         }
     }
 }
