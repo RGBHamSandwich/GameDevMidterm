@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5582267562835124357}
   - component: {fileID: 215577147427937128}
   m_Layer: 8
-  m_Name: Sprout
+  m_Name: OldSprout
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

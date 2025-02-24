@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7440622173933550905
+--- !u!1001 &300759615002849073
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,10 +11,10 @@ PrefabInstance:
     - target: {fileID: -7576427451642597443, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1338355184, guid: 8b8be873e1eaa4eb5a25b674feb06d11, type: 3}
+      objectReference: {fileID: 1374583978, guid: 8b8be873e1eaa4eb5a25b674feb06d11, type: 3}
     - target: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_Name
-      value: Plant1
+      value: Plant4
       objectReference: {fileID: 0}
     - target: {fileID: 3067570830538142108, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,23 +58,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087386345521541107, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.3
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7087386345521541107, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.6
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 7395249934276864807, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: plantPrefab
       value: 
-      objectReference: {fileID: 5582993482813640023}
+      objectReference: {fileID: 3320318172822675295}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
---- !u!1 &5582993482813640023 stripped
+--- !u!1 &3320318172822675295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
-  m_PrefabInstance: {fileID: 7440622173933550905}
+  m_PrefabInstance: {fileID: 300759615002849073}
   m_PrefabAsset: {fileID: 0}
