@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -7576427451642597443}
   - component: {fileID: 7087386345521541107}
   - component: {fileID: 7395249934276864807}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PARENTPlantPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

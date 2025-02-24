@@ -16,13 +16,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialSprout
       objectReference: {fileID: 0}
+    - target: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3067570830538142108, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.4420445
       objectReference: {fileID: 0}
     - target: {fileID: 3067570830538142108, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.60688543
       objectReference: {fileID: 0}
     - target: {fileID: 3067570830538142108, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_LocalPosition.z
