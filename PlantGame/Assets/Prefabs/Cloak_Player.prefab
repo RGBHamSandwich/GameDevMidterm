@@ -160,8 +160,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.9, y: 1.5}
+  m_Offset: {x: -0.012418747, y: -0.037255526}
+  m_Size: {x: 0.79237175, y: 1.2599087}
   m_Direction: 0
 --- !u!114 &6288413599318226233
 MonoBehaviour:
@@ -265,7 +265,7 @@ MonoBehaviour:
   teleporterCheckSize: 2
   teleporterLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!114 &6301119647339076702
 MonoBehaviour:
   m_ObjectHideFlags: 0
