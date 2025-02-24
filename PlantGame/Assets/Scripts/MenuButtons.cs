@@ -34,6 +34,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
      }
 
      public void startForest(){
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("ForestLevel");
+     }
+
+     public void startGreenhouse(){
+        SceneManager.LoadScene("greenhouse");
      }
 }
