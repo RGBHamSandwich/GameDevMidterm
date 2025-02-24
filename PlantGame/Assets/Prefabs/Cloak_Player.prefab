@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8298822583626403605}
   - component: {fileID: -5057832746834395521}
   - component: {fileID: -7532671550078784537}
+  - component: {fileID: 4965306359749979685}
   m_Layer: 0
   m_Name: Cloak_Player
   m_TagString: Player
@@ -39,6 +40,7 @@ Transform:
   m_Children:
   - {fileID: 7027542037486206366}
   - {fileID: 6739969125075034845}
+  - {fileID: 7267456748173999915}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7315575321419804797
@@ -219,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b705b74e468e37f4f8ed0fc0f4cc9528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
+  thrust: 6
   jumpWaitTime: 2
   boxCheckPivot: {fileID: 7027542037486206366}
   boxCheckSize: 0.6
@@ -240,10 +242,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateOfInteract: 3
   plantCheckPivot: {fileID: 6739969125075034845}
-  plantCheckSize: 1.5
+  plantCheckSize: 0.9
   plantLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &4965306359749979685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05be37bb61bdfd3438b254dcc8133e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportTargetPosition: {x: 14, y: -10, z: 0}
+  GreenhouseSceneName: greenhouse
+  plantPrefab: {fileID: 0}
+  teleporterCheckPivot: {fileID: 7267456748173999915}
+  teleporterCheckSize: 2
+  teleporterLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &3563822258275146498
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +291,38 @@ Transform:
   m_GameObject: {fileID: 3563822258275146498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0, y: -0.488, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2346488425714944806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6078629090461392406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7267456748173999915}
+  m_Layer: 0
+  m_Name: TeleportCheckPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7267456748173999915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078629090461392406}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
