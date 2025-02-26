@@ -13,10 +13,12 @@ public class ShopItem{
 
 public class economyManager : MonoBehaviour
 {
+    public GameObject balance;
     public ShopItem[] itemsForSale;
 
     void Start()
     {
+        updateBalance();
         foreach (ShopItem i in itemsForSale){
             i.furniture.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = i.price.ToString();
         }
@@ -32,7 +34,7 @@ public class economyManager : MonoBehaviour
         return price;
     }
 
-    private void Buy(String item){
+    public void Buy(String item){
         ShopItem itemToBuy;
         foreach (ShopItem i in itemsForSale){
             if (i.name == item){
@@ -42,13 +44,21 @@ public class economyManager : MonoBehaviour
                     PlayerMoneyManagerScript.playerBalance -= price;
                     PlaceFurniture(itemToBuy);
                 }
+                else {
+                    Debug.Log("not enough money");
+                }
                 break;
             }
         }
+        updateBalance();
     }
 
     private void PlaceFurniture(ShopItem item){
-        item.furniture.SetActive(true);
+        // item.furniture.SetActive(true);
+    }
+
+    private void updateBalance(){
+        balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
     }
 
 }
