@@ -2,47 +2,63 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEditor.Experimental.GraphView;
 
 [System.Serializable]
 public class ShopItem{
     public GameObject furniture;
     public int price;
+    public String name;
 }
 
 public class economyManager : MonoBehaviour
 {
+    public GameObject balance;
     public ShopItem[] itemsForSale;
+
+    void Start()
+    {
+        updateBalance();
+        foreach (ShopItem i in itemsForSale){
+            i.furniture.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = i.price.ToString();
+        }
+    }
 
     public int GetPrice(String item){
         int price = 0;
         foreach (ShopItem i in itemsForSale){
-            if (i.furniture.CompareTag(item)){
+            if (i.name == item){
                 price = i.price;
             }
         }
         return price;
     }
 
-    // int balance;
-    
-    // // public float balance(){
-    // //     get { return balance;};
-    // //     set { balance = value;};
-    // // }
+    public void Buy(String item){
+        ShopItem itemToBuy;
+        foreach (ShopItem i in itemsForSale){
+            if (i.name == item){
+                itemToBuy = i;
+                int price = GetPrice(item);
+                if (PlayerMoneyManagerScript.playerBalance >= price){
+                    PlayerMoneyManagerScript.playerBalance -= price;
+                    PlaceFurniture(itemToBuy);
+                }
+                else {
+                    Debug.Log("not enough money");
+                }
+                break;
+            }
+        }
+        updateBalance();
+    }
 
-    // // Dictionary<string, int> shopCosts = new Dictionary<string, int>(){
-    // //     { "couch", 50 },
-    // //     { "bed", 100 },
-    // //     { "table", 30 },
-    // //     { "chair", 10 },
-    // //     { "rug", 20 },
-    // //     { "bookshelf", 30 },
-    // //     { "toy", 10 },
-    // //     { "pet", 100 },
-    // //     { "bedside table", 20 },
-    // //     { "armchair", 30 },
-    // //     { "wallpaper", 50 },
-    // //     { "painting", 40}
-    // // };
+    private void PlaceFurniture(ShopItem item){
+        // item.furniture.SetActive(true);
+    }
+
+    private void updateBalance(){
+        balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
+    }
 
 }
