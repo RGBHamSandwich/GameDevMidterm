@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Leaf : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D collision)
+    void Update()
     {
-        // Destroy the leaf object upon collision
-        Destroy(gameObject);
+        if (transform.position.y < -5)
+        {
+            Destroy(gameObject);
+        }
     }
 }
