@@ -87,7 +87,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_Sprite: {fileID: 8938569553004278811, guid: 3fe07660121d98540a05492e422bb6cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -259,13 +259,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05be37bb61bdfd3438b254dcc8133e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportTargetPosition: {x: 14, y: -10, z: 0}
-  GreenhouseSceneName: greenhouse
   teleporterCheckPivot: {fileID: 7267456748173999915}
   teleporterCheckSize: 2
   teleporterLayer:
     serializedVersion: 2
     m_Bits: 512
+  GreenhouseTargetPosition: {x: 11, y: -11, z: 0}
+  GreenhouseSceneName: greenhouse
+  ForestTargetPosition: {x: -3, y: 3, z: 0}
+  ForestSceneName: ForestLevel
 --- !u!114 &6301119647339076702
 MonoBehaviour:
   m_ObjectHideFlags: 0

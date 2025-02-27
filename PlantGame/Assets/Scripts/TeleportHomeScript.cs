@@ -6,15 +6,19 @@ using System.IO.Compression;
 public class TeleportHomeScript : MonoBehaviour
 {
     ///// PUBLIC VARIABLES /////
+    [Header("Teleporting Logistics")]
     public static TeleportHomeScript instance;
-    [Header("Greenhouse Teleporting")]
-    [Tooltip("Where should the player appear in the Greenhouse scene?")]
-    public Vector3 teleportTargetPosition = new Vector3(0, 0, 0);
-
-    public string GreenhouseSceneName = "greenhouse";
     [SerializeField] private Transform teleporterCheckPivot;
     [SerializeField] private float teleporterCheckSize = 1.5f;
     [SerializeField] private LayerMask teleporterLayer;
+    [Header("Greenhouse Teleporting")]
+    [Tooltip("Where should the player appear in the Greenhouse scene?")]
+    public Vector3 GreenhouseTargetPosition = new Vector3(0, 0, 0);
+    public string GreenhouseSceneName = "greenhouse";
+    [Header("Forest Teleporting")]
+    [Tooltip("Where should the player appear in the Forest scene?")]
+    public Vector3 ForestTargetPosition = new Vector3(0, 0, 0);
+    public string ForestSceneName = "ForestLevel";
 
     ///// PRIVATE VARIRABLES  /////
     private bool _canTeleport = true;
@@ -66,18 +70,18 @@ public class TeleportHomeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckIfTeleporterNearby();
-        HandleTeleport();
+        int teleporterID = CheckIfTeleporterNearby();
+        HandleTeleport(teleporterID);
     }
 
-    private void HandleTeleport()
+    private void HandleTeleport(int teleporterID)
     {
         if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl))
         {
-            if(_canTeleport && _isTeleporterNearby)
+            if(_canTeleport && _isTeleporterNearby && teleporterID != -1)
             {
                 StartCoroutine(TeleportCoroutine());
-                StartCoroutine(LoadSceneCoroutine());
+                StartCoroutine(LoadSceneCoroutine(teleporterID));
 
                 Debug.Log("Player is teleporting home");
 
@@ -94,25 +98,48 @@ public class TeleportHomeScript : MonoBehaviour
         _canTeleport = true;   
     }
 
-    private IEnumerator LoadSceneCoroutine()
+    private IEnumerator LoadSceneCoroutine(int teleporterID)
     {
         Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(GreenhouseSceneName, LoadSceneMode.Single);
-        this.transform.position = teleportTargetPosition;
-        SceneManager.UnloadSceneAsync(currentScene); 
+
+        if(teleporterID == 1)   // home
+        {
+            SceneManager.LoadScene(GreenhouseSceneName, LoadSceneMode.Single);
+            this.transform.position = GreenhouseTargetPosition;
+            SceneManager.UnloadSceneAsync(currentScene); 
+        }
+        else if(teleporterID == 2)  // forest
+        {
+            SceneManager.LoadScene(ForestSceneName, LoadSceneMode.Single);
+            this.transform.position = ForestTargetPosition;
+            SceneManager.UnloadSceneAsync(currentScene);
+        }
+        else
+        {
+            Debug.Log("Teleporter ID not recognized");
+        }
 
         yield return null;
 
-        Debug.Log("Player has teleported; previous scene unloaded");
-
     }
 
-    private void CheckIfTeleporterNearby()
+    private int CheckIfTeleporterNearby()
     {
-        _isTeleporterNearby = Physics2D.OverlapBox(
+        Collider2D[] teleportersNearby = Physics2D.OverlapBoxAll(
             teleporterCheckPivot.position, 
             Vector3.one * teleporterCheckSize, 
             0, 
             teleporterLayer);
+
+        if(teleportersNearby.Length > 0)
+        {
+            _isTeleporterNearby = true;
+            // get field teleporterID
+            return teleportersNearby[0].GetComponent<TeleporterScript>().teleporterID;
+        }
+        else
+        {
+            return -1;
+        }
     }
 }
