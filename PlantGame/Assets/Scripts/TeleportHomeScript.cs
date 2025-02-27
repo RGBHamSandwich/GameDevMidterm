@@ -112,7 +112,8 @@ public class TeleportHomeScript : MonoBehaviour
         }
         else if(teleporterID == 2)  // forest
         {
-            SceneManager.LoadScene(LevelSelectSceneName, LoadSceneMode.Single);
+            SceneManager.LoadScene(ForestSceneName, LoadSceneMode.Single);
+            this.transform.position = ForestTargetPosition;
             SceneManager.UnloadSceneAsync(currentScene);
         }
         else
