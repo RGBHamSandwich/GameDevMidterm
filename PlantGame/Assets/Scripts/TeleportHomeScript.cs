@@ -20,6 +20,8 @@ public class TeleportHomeScript : MonoBehaviour
     public Vector3 ForestTargetPosition = new Vector3(0, 0, 0);
     public string ForestSceneName = "ForestLevel";
 
+    public string LevelSelectSceneName = "Level Select";
+
     ///// PRIVATE VARIRABLES  /////
     private bool _canTeleport = true;
     private bool _isTeleporterNearby = false;
@@ -110,8 +112,7 @@ public class TeleportHomeScript : MonoBehaviour
         }
         else if(teleporterID == 2)  // forest
         {
-            SceneManager.LoadScene(ForestSceneName, LoadSceneMode.Single);
-            this.transform.position = ForestTargetPosition;
+            SceneManager.LoadScene(LevelSelectSceneName, LoadSceneMode.Single);
             SceneManager.UnloadSceneAsync(currentScene);
         }
         else

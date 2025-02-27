@@ -1,43 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class MenuButtons : MonoBehaviour
 {
     public GameObject MenuPanel;
-    public GameObject LevelSelectPanel;
     
     void Start()
     {
-        MenuPanel.SetActive(true);
-        LevelSelectPanel.SetActive(false);
-    }
 
-    void Update()
-    {
-        
+        //ShowMenuPanel();
     }
 
     public void ShowLevelPanel()
      {
-         MenuPanel.SetActive(false);
-         LevelSelectPanel.SetActive(true);
+        FindObjectOfType<SceneFadeManager>().FadeToScene("Level Select");
      }
  
-    public void ShowMenuPanel()
-     {
-         MenuPanel.SetActive(true);
-         LevelSelectPanel.SetActive(false);
-     }
-
-     public void startTutorial(){
-        SceneManager.LoadScene("Tutorial Level");
-     }
-
-     public void startForest(){
-        SceneManager.LoadScene("ForestLevel");
-     }
-
-     public void startGreenhouse(){
-        SceneManager.LoadScene("greenhouse");
-     }
+     
 }
