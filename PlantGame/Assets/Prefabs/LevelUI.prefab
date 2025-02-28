@@ -1565,7 +1565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0063476562, y: -0.030090332}
+  m_AnchoredPosition: {x: -0.0063476562, y: -0.030029297}
   m_SizeDelta: {x: 14877, y: 9287.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2467325367692275856
@@ -2665,6 +2665,7 @@ MonoBehaviour:
   PausePanel: {fileID: 8217167936446466385}
   ConfirmPanel: {fileID: 490891407936062502}
   ControlsPanel: {fileID: 5783926265275638062}
+  sceneFadeManager: {fileID: 2100090261660497254}
 --- !u!1 &7080775816129612470
 GameObject:
   m_ObjectHideFlags: 0

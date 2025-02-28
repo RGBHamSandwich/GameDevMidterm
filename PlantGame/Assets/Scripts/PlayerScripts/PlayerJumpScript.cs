@@ -52,6 +52,7 @@ namespace PlantGame.Player
             if(Input.GetKeyDown(KeyCode.W) | (Input.GetKeyDown(KeyCode.UpArrow))) {
                 if(_isGrounded) 
                 {
+                    AudioManager.instance.HandleJump();
                     _isGrounded = false;
                     StartCoroutine(JumpCoroutine(jumpWaitTime));
                     _playerRigidbody.AddForce(transform.up * thrust, ForceMode2D.Impulse);
@@ -59,6 +60,7 @@ namespace PlantGame.Player
                     EOnPlayerJump?.Invoke();
                 }
             }
+          
         }
 
         private IEnumerator JumpCoroutine(float waitTime)

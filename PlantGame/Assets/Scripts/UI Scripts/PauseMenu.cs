@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject ConfirmPanel;
 
     public GameObject ControlsPanel;
+    public SceneFadeManager sceneFadeManager;
     
     void Start()
     {
@@ -32,6 +33,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ShowMenuPanel()
      {
+        AudioManager.instance.HandleButtonClick();
          MenuPanel.SetActive(true);
          PausePanel.SetActive(false);
          ConfirmPanel.SetActive(false);
@@ -40,19 +42,25 @@ public class PauseMenu : MonoBehaviour
      }
 
      public void exit(){
-        SceneManager.LoadScene("OpeningMenu");
+        AudioManager.instance.HandleButtonClick();
+        ConfirmPanel.SetActive(false);
+        PausePanel.SetActive(false);
+        sceneFadeManager.FadeToScene("OpeningMenu");
      }
 
 
     public void AreYouSure(){
+        AudioManager.instance.HandleButtonClick();
         ConfirmPanel.SetActive(true);
     }
 
     public void notSure(){
+        AudioManager.instance.HandleButtonClick();
         ConfirmPanel.SetActive(false);
     }
 
      public void close(){
+        AudioManager.instance.HandleButtonClick();
         MenuPanel.SetActive(false);
         PausePanel.SetActive(true);
         ConfirmPanel.SetActive(false);
@@ -61,10 +69,12 @@ public class PauseMenu : MonoBehaviour
      }
 
      public void openControls(){
+        AudioManager.instance.HandleButtonClick();
         ControlsPanel.SetActive(true);
      }
 
      public void closeControls(){
+        AudioManager.instance.HandleButtonClick();
         ControlsPanel.SetActive(false);
      }
 }

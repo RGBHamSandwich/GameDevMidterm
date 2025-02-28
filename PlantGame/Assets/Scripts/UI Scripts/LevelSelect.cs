@@ -8,14 +8,17 @@ public class LevelSelect : MonoBehaviour
 
    public SceneFadeManager sceneFadeManager;
     public void StartTutorial(){
-        sceneFadeManager.FadeToScene("TutorialLevel");
+         AudioManager.instance.HandleButtonClick();
+         sceneFadeManager.FadeToScene("TutorialLevel");
      }
 
      public void StartForest(){
+         AudioManager.instance.HandleButtonClick();
          sceneFadeManager.FadeToScene("ForestLevel");
      }
 
      public void StartGreenhouse(){
-        sceneFadeManager.FadeToScene("Greenhouse");
+         AudioManager.instance.HandleButtonClick();
+         sceneFadeManager.FadeToScene("Greenhouse");
      }
 }

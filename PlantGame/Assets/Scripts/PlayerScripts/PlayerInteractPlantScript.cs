@@ -75,6 +75,8 @@ namespace PlantGame.Player
 
                     EOnPlayerInteractPlant?.Invoke();
                 }
+                AudioManager.instance.HandlePickUp();
+                
             }
             else if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && _hasPlant && _canInteractPlant)
             {
