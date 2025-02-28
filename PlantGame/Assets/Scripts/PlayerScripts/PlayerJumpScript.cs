@@ -36,13 +36,11 @@ namespace PlantGame.Player
             Gizmos.DrawWireCube(boxCheckPivot.position, Vector3.one * boxCheckSize);
         }
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _playerRigidbody = GetComponent<Rigidbody2D>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             CheckIfGrounded();

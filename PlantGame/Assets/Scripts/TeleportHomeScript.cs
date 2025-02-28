@@ -14,7 +14,7 @@ public class TeleportHomeScript : MonoBehaviour
     [Header("Greenhouse Teleporting")]
     [Tooltip("Where should the player appear in the Greenhouse scene?")]
     public Vector3 GreenhouseTargetPosition = new Vector3(0, 0, 0);
-    public string GreenhouseSceneName = "greenhouse";
+    public string GreenhouseSceneName = "Greenhouse";
     [Header("Forest Teleporting")]
     [Tooltip("Where should the player appear in the Forest scene?")]
     public Vector3 ForestTargetPosition = new Vector3(0, 0, 0);
@@ -52,7 +52,6 @@ public class TeleportHomeScript : MonoBehaviour
             );
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
@@ -69,7 +68,6 @@ public class TeleportHomeScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         int teleporterID = CheckIfTeleporterNearby();
@@ -136,7 +134,6 @@ public class TeleportHomeScript : MonoBehaviour
         if(teleportersNearby.Length > 0)
         {
             _isTeleporterNearby = true;
-            // get field teleporterID
             return teleportersNearby[0].GetComponent<TeleporterScript>().teleporterID;
         }
         else
