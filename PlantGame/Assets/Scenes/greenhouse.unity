@@ -453,7 +453,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -573,7 +572,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.56, y: -6.74, z: -10}
+  m_LocalPosition: {x: 12, y: -7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -589,48 +588,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowDebugText: 0
-  ShowCameraFrustum: 1
-  IgnoreTimeScale: 0
-  WorldUpOverride: {fileID: 0}
-  ChannelMask: -1
-  UpdateMethod: 2
-  BlendUpdateMethod: 1
-  LensModeOverride:
-    Enabled: 0
-    DefaultMode: 2
-  DefaultBlend:
-    Style: 1
-    Time: 2
-    CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bac7559f5820ce4986af0126448a593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTarget: {fileID: 225181912}
-  camerashake: 0
-  cameraStart: 0
-  cameraEnd: 0
   specifiedLocation: {x: 0, y: 0, z: 0}
-  smoothTime: 0.3
-  targetZoom: 0
   zoomVelocity: 0
   plant: {fileID: 0}
   playerMovementScript: {fileID: 0}
@@ -5770,6 +5731,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3741017912938781299, guid: 7afd57d789cb448c8b57f16510c11b05, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.030029297
+      objectReference: {fileID: 0}
     - target: {fileID: 4199352180562659387, guid: 7afd57d789cb448c8b57f16510c11b05, type: 3}
       propertyPath: m_Name
       value: LevelUI
@@ -6287,11 +6252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2346488425714944806, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.56
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2346488425714944806, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.87
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2346488425714944806, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
       propertyPath: m_LocalPosition.z

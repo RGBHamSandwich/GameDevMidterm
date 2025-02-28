@@ -1,25 +1,46 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform cameraTarget;
-    public float camerashake;
-    public float cameraStart;
-    public float cameraEnd;
+    private Transform cameraTarget;
+    private float cameraStart;
+    private float cameraEnd;
     public Vector3 specifiedLocation; // The specified location to check
-    public float smoothTime = 0.3f; // Time for the camera to reach the target
+    private float smoothTime = 2f; // Time for the camera to reach the target
     private Vector3 velocity = Vector3.zero; // Velocity reference for SmoothDamp
     private enum CameraState { Idle, ZoomingIn, ZoomingOut }
     private CameraState currentState = CameraState.Idle; // Current state of the camera
-    public float targetZoom;
+    private float targetZoom=.5f;
     public float zoomVelocity;
     public GameObject plant; // Reference to the plant object
     public MonoBehaviour playerMovementScript; // Reference to the player's movement script
     private Vector3 originalPosition;
     private float originalZoom;
+    private bool Greenhouse = false;
 
     void Start()
-    {
+    { 
+        cameraTarget = GameObject.FindGameObjectWithTag("Player").transform; 
+        originalPosition = transform.position;
+        originalZoom = Camera.main.orthographicSize;
+    
+        if (SceneManager.GetActiveScene().name == "ForestLevel") 
+        {
+            cameraStart = 3f;
+            cameraEnd = 125f;
+        }
+        else
+        {
+            cameraStart = -80f;
+            cameraEnd = 12f;
+            currentState = CameraState.Idle;
+            Greenhouse= true;
+
+
+        }
+        cameraTarget = GameObject.FindGameObjectWithTag("Player").transform; 
         originalPosition = transform.position;
         originalZoom = Camera.main.orthographicSize;
 
@@ -85,19 +106,27 @@ public class CameraFollow : MonoBehaviour
 
     public void FollowCameraTargetHorizontally()
     {
+        Vector3 targetPosition = transform.position;
+
+        if (Greenhouse)
+        {
+            targetPosition.y = cameraTarget.position.y + 3f;
+            targetPosition.z = -10f;
+        }
+    
         if (cameraTarget.position.x < cameraStart || cameraTarget.position.x >= cameraEnd)
         {
+            targetPosition.x = transform.position.x;
+            transform.position = targetPosition;
+
             return;
         }
-        if (Mathf.Abs(cameraTarget.position.x - transform.position.x) < camerashake)
-        {
-            return; // Don't move if the camera is almost in the target's position
-        }
 
-        Vector3 targetPosition = transform.position;
+        
 
         if ((cameraTarget.position.x != targetPosition.x))
         {
+           
             targetPosition.x = cameraTarget.position.x;
             transform.position = targetPosition;
         }
