@@ -75,11 +75,14 @@ namespace PlantGame.Player
 
                     EOnPlayerInteractPlant?.Invoke();
                 }
-                AudioManager.instance.HandlePickUp();
+
+                if(AudioManager.instance != null) AudioManager.instance.HandlePickUp();
                 
             }
             else if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && _hasPlant && _canInteractPlant)
             {
+                bool teleporterNearby = GetComponent<TeleportHomeScript>()._isTeleporterNearby;
+                if (teleporterNearby) return;
                 // if (greenhouse space is nearby) 
                 // { 
                     // put plant in greenhouse plant spot 

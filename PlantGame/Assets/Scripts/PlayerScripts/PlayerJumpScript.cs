@@ -52,26 +52,27 @@ namespace PlantGame.Player
             if(Input.GetKeyDown(KeyCode.W) | (Input.GetKeyDown(KeyCode.UpArrow))) {
                 if(_isGrounded) 
                 {
-                    AudioManager.instance.HandleJump();
+                    if(AudioManager.instance != null) AudioManager.instance.HandleJump();
                     _isGrounded = false;
                     StartCoroutine(JumpCoroutine(jumpWaitTime));
                     _playerRigidbody.AddForce(transform.up * thrust, ForceMode2D.Impulse);
                     
                     EOnPlayerJump?.Invoke();
                 }
-            }
-          
+            }  
         }
 
         private IEnumerator JumpCoroutine(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
+            // Debug.Log("JumpCoroutine finished");
             _isGrounded = true;
         }
 
         private void CheckIfGrounded()
         {
             _isGrounded = Physics2D.OverlapBox(boxCheckPivot.position, Vector3.one * boxCheckSize, 0, groundLayer);
+            Debug.Log(_isGrounded);
         }
     }
 }

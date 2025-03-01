@@ -171,14 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4965306359749979685, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
-      propertyPath: GreenhouseTargetPosition.x
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4965306359749979685, guid: 7797b65ca61da5247afcc41714a63dd3, type: 3}
-      propertyPath: GreenhouseTargetPosition.y
-      value: -11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -934,14 +926,6 @@ PrefabInstance:
     - target: {fileID: 1850686794845559509, guid: 71d0592349762ec4a9974cdd0d7a1483, type: 3}
       propertyPath: m_Name
       value: LevelTeleporter
-      objectReference: {fileID: 0}
-    - target: {fileID: 9023719163988763872, guid: 71d0592349762ec4a9974cdd0d7a1483, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9023719163988763872, guid: 71d0592349762ec4a9974cdd0d7a1483, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9023719163988763872, guid: 71d0592349762ec4a9974cdd0d7a1483, type: 3}
       propertyPath: m_LocalPosition.x
