@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5822039356053653783}
   - component: {fileID: 6033960045297937438}
   - component: {fileID: -3321028561395672190}
+  - component: {fileID: -8778421573564045164}
   m_Layer: 9
   m_Name: GreenhouseTeleporter
   m_TagString: Untagged
@@ -134,3 +135,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.22, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &-8778421573564045164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959560354891205137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2a69003a154944baa2b177a4b62384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleporterID: 1

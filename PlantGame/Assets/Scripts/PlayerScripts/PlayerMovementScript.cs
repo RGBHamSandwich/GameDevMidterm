@@ -20,16 +20,13 @@ namespace PlantGame.Player
         public static OnPlayerMovement EOnPlayerMovement;
 
         ///// METHODS /////
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _playerRigidbody = GetComponent<Rigidbody2D>();
             _playerSpriteRenderer = GetComponent<SpriteRenderer>();
-            // put sprite on top
-            _playerSpriteRenderer.sortingOrder = 101;    // this will render the player on top of everything
+            _playerSpriteRenderer.sortingOrder = 101; 
         }
 
-        // Update is called once per frame
         void Update()
         {
             HandleMovement();

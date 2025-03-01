@@ -39,7 +39,6 @@ namespace PlantGame.Player
                 );
         }
         
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _playerRigidbody = GetComponent<Rigidbody2D>();
@@ -53,7 +52,6 @@ namespace PlantGame.Player
             }
         }
 
-        // Update is called once per frame
         void Update()
         {
             CheckIfPlantNearby();
@@ -74,10 +72,11 @@ namespace PlantGame.Player
                     _currentPlantPrefab = _plant;
 
                     _hasPlant = true;
-                    Debug.Log("Player picked up a plant");
 
                     EOnPlayerInteractPlant?.Invoke();
                 }
+                AudioManager.instance.HandlePickUp();
+                
             }
             else if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && _hasPlant && _canInteractPlant)
             {
@@ -90,7 +89,6 @@ namespace PlantGame.Player
                     _canInteractPlant = false;
                     StartCoroutine(PickUpCoroutine(rateOfInteract));
 
-                    // put plant down
                     PlantScript plantScript = _plant.GetComponent<PlantScript>();
                     plantScript.PutMeDown();
                     _currentPlantPrefab = null;

@@ -7,7 +7,6 @@ namespace PlantGame.Player
         private Animator _playerAnimator;
         private SpriteRenderer _playerSpriteRenderer;
         
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _playerAnimator = GetComponent<Animator>();
@@ -18,18 +17,11 @@ namespace PlantGame.Player
             PlayerInteractPlantScript.EOnPlayerInteractPlant += TriggerPickUp;   
         }
 
-        void OnDestroy()    // use this instead of onDisable?
+        void OnDestroy()    
         {
-            // Unsubscribe to prevent memory leaks
             PlayerMovementScript.EOnPlayerMovement -= UpdateMovement;
             PlayerJumpScript.EOnPlayerJump -= TriggerJump;
             PlayerInteractPlantScript.EOnPlayerInteractPlant -= TriggerPickUp;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
             
         private void UpdateMovement(Vector2 movement)
@@ -56,8 +48,3 @@ namespace PlantGame.Player
     }
 }
 
-
-
-
-// # move bushes closer - test jumping
-// # fix ground detection (smaller width)

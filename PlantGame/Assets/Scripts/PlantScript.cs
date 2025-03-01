@@ -6,20 +6,11 @@ public class PlantScript : MonoBehaviour
 
     private SpriteRenderer _plantSpriteRenderer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _plantSpriteRenderer = GetComponent<SpriteRenderer>();
-        // put sprite on top
-        _plantSpriteRenderer.sortingOrder = 100;    // this will render the plant on top of everything
+        _plantSpriteRenderer.sortingOrder = 100; 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PickMeUp()
     {
         GameObject player = GameObject.FindWithTag("Player");

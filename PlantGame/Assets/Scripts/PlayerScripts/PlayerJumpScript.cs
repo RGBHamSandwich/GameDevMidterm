@@ -36,13 +36,11 @@ namespace PlantGame.Player
             Gizmos.DrawWireCube(boxCheckPivot.position, Vector3.one * boxCheckSize);
         }
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _playerRigidbody = GetComponent<Rigidbody2D>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             CheckIfGrounded();
@@ -54,6 +52,7 @@ namespace PlantGame.Player
             if(Input.GetKeyDown(KeyCode.W) | (Input.GetKeyDown(KeyCode.UpArrow))) {
                 if(_isGrounded) 
                 {
+                    AudioManager.instance.HandleJump();
                     _isGrounded = false;
                     StartCoroutine(JumpCoroutine(jumpWaitTime));
                     _playerRigidbody.AddForce(transform.up * thrust, ForceMode2D.Impulse);
@@ -61,6 +60,7 @@ namespace PlantGame.Player
                     EOnPlayerJump?.Invoke();
                 }
             }
+          
         }
 
         private IEnumerator JumpCoroutine(float waitTime)
