@@ -1,4 +1,5 @@
 using UnityEngine;
+using PlantGame.Player; 
 
 namespace PlantGame.Player 
 {
@@ -14,7 +15,8 @@ namespace PlantGame.Player
 
             PlayerMovementScript.EOnPlayerMovement += UpdateMovement;
             PlayerJumpScript.EOnPlayerJump += TriggerJump;
-            PlayerInteractPlantScript.EOnPlayerInteractPlant += TriggerPickUp;   
+            PlayerInteractPlantScript.EOnPlayerInteractPlant += TriggerPickUp;
+            TeleportHomeScript.EOnPlayerTeleport += TriggerTeleport;   
         }
 
         void OnDestroy()    
@@ -22,6 +24,7 @@ namespace PlantGame.Player
             PlayerMovementScript.EOnPlayerMovement -= UpdateMovement;
             PlayerJumpScript.EOnPlayerJump -= TriggerJump;
             PlayerInteractPlantScript.EOnPlayerInteractPlant -= TriggerPickUp;
+            TeleportHomeScript.EOnPlayerTeleport -= TriggerTeleport;
         }
             
         private void UpdateMovement(Vector2 movement)
@@ -45,6 +48,10 @@ namespace PlantGame.Player
             _playerAnimator.SetTrigger("PickUpTrigger");
         }
 
+        private void TriggerTeleport()
+        {
+            _playerAnimator.SetTrigger("TeleportTrigger");
+        }
     }
 }
 
