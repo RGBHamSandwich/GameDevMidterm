@@ -1337,6 +1337,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 270832701459688617, guid: 97157ebf48a669e44accaffd5e73ffa0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4549074569521722234, guid: 97157ebf48a669e44accaffd5e73ffa0, type: 3}
       propertyPath: m_Name
       value: TutorialSprout
