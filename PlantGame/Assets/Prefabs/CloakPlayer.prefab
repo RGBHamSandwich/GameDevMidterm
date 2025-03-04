@@ -268,6 +268,8 @@ MonoBehaviour:
   GreenhouseSceneName: greenhouse
   ForestTargetPosition: {x: -3, y: 3, z: 0}
   ForestSceneName: ForestLevel
+  LevelSelectSceneName: Level Select
+  _isTeleporterNearby: 0
 --- !u!114 &6301119647339076702
 MonoBehaviour:
   m_ObjectHideFlags: 0

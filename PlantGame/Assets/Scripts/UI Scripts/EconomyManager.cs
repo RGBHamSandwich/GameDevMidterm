@@ -23,6 +23,22 @@ public class EconomyManager : MonoBehaviour
     void Start(){
         Time.timeScale = 1;
         ShopUI.SetActive(false);
+        foreach (ShopItem i in ItemsForSale){
+           if (i.furniture != null)
+            {
+                i.furniture.SetActive(false);
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            if(ShopUI.activeSelf != false){
+                closeShop();
+            }
+        }
     }
 
     public void openShop(){
@@ -35,7 +51,7 @@ public class EconomyManager : MonoBehaviour
     }
 
     public void closeShop(){
-        ShopUI.SetActive(true);
+        ShopUI.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -63,34 +79,35 @@ public class EconomyManager : MonoBehaviour
                 break;
             }
         }
-        UpdateShop();
         StartCoroutine(CountdownRoutine(initialBalance, PlayerMoneyManagerScript.playerBalance));
+        
     }
 
     private IEnumerator CountdownRoutine(int start, int end)
     {
+        AudioManager.instance.HandleMoney();
         float elapsedTime = 0f;
         int current = start;
 
         while (current > end)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             float t = elapsedTime / 1f;
             current = Mathf.RoundToInt(Mathf.Lerp(start, end, t));
-            Balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = current.ToString();
+            Balance.GetComponent<TMPro.TextMeshProUGUI>().text = current.ToString();
             yield return null; 
         }
 
-        Balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = end.ToString(); 
+        Balance.GetComponent<TMPro.TextMeshProUGUI>().text = end.ToString(); 
+        UpdateShop();
     }
 
     private void PlaceFurniture(ShopItem item){
-        //this will be done once furniture prefabs are ready
-        // item.furniture.SetActive(true);
+        item.furniture.SetActive(true);
     }
 
     private void UpdateShop(){
-        Balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
+        Balance.GetComponent<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
         foreach (ShopItem i in ItemsForSale){
             if (PlayerMoneyManagerScript.playerBalance < i.price){
                 i.furniture.GetComponent<Button>().interactable = false;

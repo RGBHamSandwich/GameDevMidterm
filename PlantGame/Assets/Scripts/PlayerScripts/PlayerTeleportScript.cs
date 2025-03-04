@@ -108,13 +108,13 @@ namespace PlantGame.Player
             {
                 SceneManager.LoadScene(GreenhouseSceneName, LoadSceneMode.Single);
                 this.transform.position = GreenhouseTargetPosition;
-                SceneManager.UnloadSceneAsync(currentScene); 
+                //SceneManager.UnloadSceneAsync(currentScene); 
             }
             else if(teleporterID == 2)  // forest
             {
                 SceneManager.LoadScene(ForestSceneName, LoadSceneMode.Single);
                 this.transform.position = ForestTargetPosition;
-                SceneManager.UnloadSceneAsync(currentScene);
+                //SceneManager.UnloadSceneAsync(currentScene);
             }
             else
             {
