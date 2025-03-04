@@ -100,5 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8c74ed9fd7647798b7fd6328a9c6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 6078348146834968549}
-  plant_pos: {fileID: 6076571301285679575}
+  plantRenderer: {fileID: 6078348146834968549}
+  plant: {fileID: 6076571301285679575}

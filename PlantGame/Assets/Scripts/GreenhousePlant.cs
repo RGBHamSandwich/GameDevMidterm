@@ -7,33 +7,41 @@ public class GreenhousePlant : MonoBehaviour
     private PlayerInteractPlantScript _hasplant;
     private PlayerInteractPlantScript _plant;
     private GameObject player;
-    public SpriteRenderer plant;
-    public GameObject plant_pos;
+    public SpriteRenderer plantRenderer;
+    public GameObject plant;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        SpriteRenderer plant = GetComponent<SpriteRenderer>();
-        GameObject plant_pos = GetComponent<GameObject>();
+        SpriteRenderer plantRenderer = GetComponent<SpriteRenderer>();
+        GameObject plant = GetComponent<GameObject>();
         disablePlant();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_hasplant == true){
-            if (player.transform.position.x == plant_pos.transform.position.x){
+       placePlant();
+    }
+
+    void placePlant(){
+        if (player != null){
+        //if (_hasplant == true){
+            if (player.transform.position.x == plant.transform.position.x){
                 if (Input.GetKey(KeyCode.E)){
-                    plant.enabled = true;
-                    Destroy(_plant);
+                    plantRenderer.enabled = true;
+                    //Destroy(_plant);
                 }
             }
         }
     }
 
     void disablePlant(){
-        plant.enabled = false;
+        
+        if (plantRenderer != null){
+            plantRenderer.enabled = false;
+        }
     }
     
 }

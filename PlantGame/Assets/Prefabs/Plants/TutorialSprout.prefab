@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7576427451642597443, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_Name
       value: TutorialSprout
@@ -70,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087386345521541107, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.25
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 7395249934276864807, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: plantPrefab

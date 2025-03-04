@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8c74ed9fd7647798b7fd6328a9c6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 13560569949190574}
-  plant_pos: {fileID: 5112475624210080044}
+  plantRenderer: {fileID: 13560569949190574}
+  plant: {fileID: 5112475624210080044}
 --- !u!212 &13560569949190574
 SpriteRenderer:
   m_ObjectHideFlags: 0
