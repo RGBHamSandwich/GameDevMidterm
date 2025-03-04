@@ -65,14 +65,12 @@ namespace PlantGame.Player
         private IEnumerator JumpCoroutine(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
-            // Debug.Log("JumpCoroutine finished");
             _isGrounded = true;
         }
 
         private void CheckIfGrounded()
         {
             _isGrounded = Physics2D.OverlapBox(boxCheckPivot.position, Vector3.one * boxCheckSize, 0, groundLayer);
-            Debug.Log(_isGrounded);
         }
     }
 }
