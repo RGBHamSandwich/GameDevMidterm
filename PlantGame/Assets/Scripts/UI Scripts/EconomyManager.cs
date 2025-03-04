@@ -20,6 +20,21 @@ public class EconomyManager : MonoBehaviour
     public ShopItem[] ItemsForSale;
 
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(ShopUI);
+        }
+        else
+        {
+            Destroy(gameObject); 
+            Destroy(ShopUI);
+        }
+    }
+
     void Start(){
         Time.timeScale = 1;
         ShopUI.SetActive(false);
@@ -45,9 +60,6 @@ public class EconomyManager : MonoBehaviour
         ShopUI.SetActive(true);
         Time.timeScale = 0;
         UpdateShop();
-        foreach (ShopItem i in ItemsForSale){
-            i.furniture.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = i.price.ToString();
-        }
     }
 
     public void closeShop(){

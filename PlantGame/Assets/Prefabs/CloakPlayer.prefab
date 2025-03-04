@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: -7532671550078784537}
   - component: {fileID: 4965306359749979685}
   - component: {fileID: 6301119647339076702}
-  - component: {fileID: 1563661066449155064}
   - component: {fileID: 4023038767159353029}
   m_Layer: 0
   m_Name: CloakPlayer
@@ -262,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05be37bb61bdfd3438b254dcc8133e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  economyManagerPrefab: {fileID: 7662882232925797913, guid: 8ed464ca854584366843006df7ca383b, type: 3}
   teleporterCheckPivot: {fileID: 7267456748173999915}
   teleporterCheckSize: 2
   teleporterLayer:
@@ -285,21 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050cd8013405e4acab4ceda2db11c96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1563661066449155064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385352569755350736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 257e31f5ef19d484eb3570bd2a8708d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShopUI: {fileID: 0}
-  Balance: {fileID: 0}
-  ItemsForSale: []
 --- !u!114 &4023038767159353029
 MonoBehaviour:
   m_ObjectHideFlags: 0

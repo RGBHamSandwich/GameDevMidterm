@@ -87,7 +87,6 @@ namespace PlantGame.Player
                     StartCoroutine(TeleportCoroutine());
                     StartCoroutine(LoadSceneCoroutine(teleporterID));
 
-                    // Debug.Log("Player is teleporting.");
 
                     _canTeleport = false;
                 }
@@ -108,13 +107,11 @@ namespace PlantGame.Player
             {
                 SceneManager.LoadScene(GreenhouseSceneName, LoadSceneMode.Single);
                 this.transform.position = GreenhouseTargetPosition;
-                //SceneManager.UnloadSceneAsync(currentScene); 
             }
             else if(teleporterID == 2)  // forest
             {
                 SceneManager.LoadScene(ForestSceneName, LoadSceneMode.Single);
                 this.transform.position = ForestTargetPosition;
-                //SceneManager.UnloadSceneAsync(currentScene);
             }
             else
             {
