@@ -14,20 +14,34 @@ public class ShopItem{
 
 public class EconomyManager : MonoBehaviour
 {
-    public GameObject balance;
-    public ShopItem[] itemsForSale;
+    public static EconomyManager instance;
+    public GameObject ShopUI;
+    public GameObject Balance;
+    public ShopItem[] ItemsForSale;
 
-    void Start()
-    {
+
+    void Start(){
+        Time.timeScale = 1;
+        ShopUI.SetActive(false);
+    }
+
+    public void openShop(){
+        ShopUI.SetActive(true);
+        Time.timeScale = 0;
         UpdateShop();
-        foreach (ShopItem i in itemsForSale){
+        foreach (ShopItem i in ItemsForSale){
             i.furniture.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = i.price.ToString();
         }
     }
 
+    public void closeShop(){
+        ShopUI.SetActive(true);
+        Time.timeScale = 1;
+    }
+
     public int GetPrice(String item){
         int price = 0;
-        foreach (ShopItem i in itemsForSale){
+        foreach (ShopItem i in ItemsForSale){
             if (i.name == item){
                 price = i.price;
             }
@@ -38,7 +52,7 @@ public class EconomyManager : MonoBehaviour
     public void Buy(String item){
         ShopItem itemToBuy;
         int initialBalance = PlayerMoneyManagerScript.playerBalance;
-        foreach (ShopItem i in itemsForSale){
+        foreach (ShopItem i in ItemsForSale){
             if (i.name == item){
                 itemToBuy = i;
                 int price = GetPrice(item);
@@ -63,11 +77,11 @@ public class EconomyManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / 1f;
             current = Mathf.RoundToInt(Mathf.Lerp(start, end, t));
-            balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = current.ToString();
+            Balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = current.ToString();
             yield return null; 
         }
 
-        balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = end.ToString(); 
+        Balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = end.ToString(); 
     }
 
     private void PlaceFurniture(ShopItem item){
@@ -76,8 +90,8 @@ public class EconomyManager : MonoBehaviour
     }
 
     private void UpdateShop(){
-        balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
-        foreach (ShopItem i in itemsForSale){
+        Balance.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
+        foreach (ShopItem i in ItemsForSale){
             if (PlayerMoneyManagerScript.playerBalance < i.price){
                 i.furniture.GetComponent<Button>().interactable = false;
             }
