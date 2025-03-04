@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5027946569022094460, guid: 9203a2626790d6248aa7ad838949dd79, type: 3}
+    - target: {fileID: -7576427451642597443, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_Name
       value: TutorialSprout
@@ -75,10 +79,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9036813603678968973}
   m_SourcePrefab: {fileID: 100100000, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
+--- !u!212 &270832701459688617 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: -7576427451642597443, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
+  m_PrefabInstance: {fileID: 1520298816035832596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4549074569521722234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
   m_PrefabInstance: {fileID: 1520298816035832596}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9036813603678968973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549074569521722234}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d8c74ed9fd7647798b7fd6328a9c6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plant: {fileID: 270832701459688617}
