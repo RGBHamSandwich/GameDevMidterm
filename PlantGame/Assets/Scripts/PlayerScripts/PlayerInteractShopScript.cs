@@ -22,6 +22,7 @@ namespace PlantGame.Player
         {
             EconomyUI = FindFirstObjectByType<EconomyManager>();
             _playerRigidbody = GetComponent<Rigidbody2D>();
+            
         }
 
         void Update(){

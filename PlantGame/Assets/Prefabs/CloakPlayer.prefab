@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: -7532671550078784537}
   - component: {fileID: 4965306359749979685}
   - component: {fileID: 6301119647339076702}
+  - component: {fileID: 1563661066449155064}
+  - component: {fileID: 4023038767159353029}
   m_Layer: 0
   m_Name: CloakPlayer
   m_TagString: Player
@@ -42,6 +44,7 @@ Transform:
   - {fileID: 7027542037486206366}
   - {fileID: 6739969125075034845}
   - {fileID: 7267456748173999915}
+  - {fileID: 1077604948702743328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7315575321419804797
@@ -268,6 +271,8 @@ MonoBehaviour:
   GreenhouseSceneName: greenhouse
   ForestTargetPosition: {x: -3, y: 3, z: 0}
   ForestSceneName: ForestLevel
+  LevelSelectSceneName: Level Select
+  _isTeleporterNearby: 0
 --- !u!114 &6301119647339076702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +285,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050cd8013405e4acab4ceda2db11c96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1563661066449155064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257e31f5ef19d484eb3570bd2a8708d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShopUI: {fileID: 0}
+  Balance: {fileID: 0}
+  ItemsForSale: []
+--- !u!114 &4023038767159353029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385352569755350736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348e3f7bb0d3c4fdeae45d8fc5121d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signCheckPivot: {fileID: 1077604948702743328}
+  signCheckSize: 1.5
+  signLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!1 &2390793566602712864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077604948702743328}
+  m_Layer: 0
+  m_Name: SignCheckPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077604948702743328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390793566602712864}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2346488425714944806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3563822258275146498
 GameObject:
   m_ObjectHideFlags: 0
