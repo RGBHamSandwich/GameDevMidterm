@@ -2538,7 +2538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd99d1acafc345e384be876a0a9f82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeCanvasGroup: {fileID: 0}
+  fadeCanvasGroup: {fileID: 2137310855}
   fadeDuration: 0.5
 --- !u!1 &648676238
 GameObject:
@@ -9474,13 +9474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bac7559f5820ce4986af0126448a593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTarget: {fileID: 237840736}
-  camerashake: 0
-  cameraStart: 3
-  cameraEnd: 126
   specifiedLocation: {x: 23, y: 2.5, z: -10}
-  smoothTime: 1
-  targetZoom: 0.5
   zoomVelocity: 0.05
   plant: {fileID: 989875867}
   playerMovementScript: {fileID: 965136319}
