@@ -14,7 +14,7 @@ namespace PlantGame.Player
         [SerializeField] private LayerMask plantLayer;
 
         ///// PRIVATE VARIRABLES  /////
-        private bool _hasPlant = false;
+        public bool _hasPlant = false;
         private Rigidbody2D _playerRigidbody;
         private bool _isPlantNearby = false;
         private bool _canInteractPlant = true;
