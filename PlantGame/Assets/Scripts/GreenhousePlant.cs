@@ -19,58 +19,51 @@ public class GreenhousePlant : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        plantRenderer = GetComponent<SpriteRenderer>();
-        GameObject plant = GetComponent<GameObject>();
+        //plantRenderer = GetComponent<SpriteRenderer>();
+        //GameObject plant = GetComponent<GameObject>();
         playerScript = player.GetComponent<PlayerInteractPlantScript>();
-        distanceIcon = GetComponent<SpriteRenderer>();
-        disablePlant();
-        //disableIcons();
-        //if (distanceIcon != null){
-        //    distanceIcon.enabled = false;
-        //}
+        //distanceIcon = GetComponent<SpriteRenderer>();
+        disableAllIcons();
     }
 
     void Update()
     {
-        //checkDistance();
         placePlant();
     }
 
     void placePlant(){
-        //hi this is kendall!! please put the following line in at some point 
-        //so that placing the plant also increases the bank balance
-        //
+
+        //float distancetoPlant = Vector2.Distance(player.transform.position, plant.transform.position);
+        float distancetoIcon = Vector2.Distance(player.transform.position, icon.transform.position);
         Debug.Log("hasPlant is: " + playerScript._hasPlant);
-        if (playerScript._hasPlant){
-            if (Vector2.Distance(player.transform.position, plant.transform.position) < 1.5f && Vector2.Distance(player.transform.position, icon.transform.position) <= 1.5f){
-                distanceIcon.enabled = true;
-                if (Input.GetKey(KeyCode.E)){
-                    distanceIcon.enabled = false;
-                    Debug.Log("Pressing E");
-                    PlayerMoneyManagerScript.playerBalance += 5;
-                    plantRenderer.enabled = true;
-                    Destroy(_plant);
+        if (distancetoIcon <= 1.5f){
+            distanceIcon.enabled = true;
+            if (playerScript._hasPlant && Input.GetKeyDown(KeyCode.E)){
+                distanceIcon.enabled = false;
+                Debug.Log("Pressing E");
+                plantRenderer.enabled = true;
+                PlayerMoneyManagerScript.playerBalance += 5;
+                if (playerScript._plant != null){
+                    Destroy(playerScript._plant);
+                    playerScript._hasPlant = false;
                 }
             }
         }
+        else {
+            distanceIcon.enabled = false;
+        }
+        
     }
 
-    void disablePlant(){
+    void disableAllIcons(){
         
         if (plantRenderer != null){
             plantRenderer.enabled = false;
         }
+
+        if (distanceIcon != null){
+            distanceIcon.enabled = false;
+        }
     }
-
-    //void checkDistance(){
-    //    float distance = Vector2.Distance(player.transform.position, icon.transform.position);
-
-    //    if (distance <= 1.5f){
-    //        distanceIcon.enabled = true;
-    //    }
-    //    else{
-    //        distanceIcon.enabled = false;
-    //    }    
-    //}
     
 }

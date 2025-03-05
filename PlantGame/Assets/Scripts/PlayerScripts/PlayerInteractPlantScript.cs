@@ -18,7 +18,7 @@ namespace PlantGame.Player
         private Rigidbody2D _playerRigidbody;
         private bool _isPlantNearby = false;
         private bool _canInteractPlant = true;
-        private GameObject _plant;
+        public GameObject _plant;
         private static GameObject _currentPlantPrefab;
 
         ///// COROUTINES /////
