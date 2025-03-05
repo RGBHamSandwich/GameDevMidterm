@@ -34,7 +34,6 @@ public class GreenhousePlant : MonoBehaviour
     void placePlant(){
         Debug.Log("hasPlant is: " + playerScript._hasPlant);
         if (playerScript._hasPlant){
-            //if (player.transform.position.x == plant.transform.position.x){
             if (Vector2.Distance(player.transform.position, plant.transform.position) < 1.5f){
                 distanceIcon.enabled = true;
                 if (Input.GetKey(KeyCode.E)){
@@ -42,7 +41,6 @@ public class GreenhousePlant : MonoBehaviour
                     Debug.Log("Pressing E");
                     plantRenderer.enabled = true;
                     Destroy(_plant);
-                    //_hasplant = false;
                 }
             }
         }
