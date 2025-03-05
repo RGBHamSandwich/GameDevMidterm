@@ -22,8 +22,10 @@ namespace PlantGame.Player
         void Start()
         {
             _playerRigidbody = GetComponent<Rigidbody2D>();
-            EconomyUI = EconomyManager.instance;
-            EconomyUI.closeShop();
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Greenhouse"){
+                EconomyUI = EconomyManager.instance;
+                EconomyUI.closeShop();
+            }
         }
 
         void Update(){
