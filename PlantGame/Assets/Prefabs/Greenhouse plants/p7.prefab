@@ -102,3 +102,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantRenderer: {fileID: -1577445375710785869}
   plant: {fileID: 3378909904589702158}
+  distanceIcon: {fileID: 2989829242108672818, guid: 769fd5d1be4644fdb95a28184cedadcf, type: 3}

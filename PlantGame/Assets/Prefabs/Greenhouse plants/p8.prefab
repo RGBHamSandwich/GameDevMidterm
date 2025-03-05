@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1063997691, guid: 7d12b1a5abb444869989253f04d03c66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,3 +102,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantRenderer: {fileID: 6078348146834968549}
   plant: {fileID: 6076571301285679575}
+  distanceIcon: {fileID: 2989829242108672818, guid: 769fd5d1be4644fdb95a28184cedadcf, type: 3}
