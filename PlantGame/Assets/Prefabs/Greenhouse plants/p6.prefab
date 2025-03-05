@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4360830261044257967}
   m_Layer: 0
   m_Name: p6
-  m_TagString: Untagged
+  m_TagString: p6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,4 +102,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantRenderer: {fileID: -2636301183458727034}
   plant: {fileID: 1284021052666363603}
-  distanceIcon: {fileID: 2989829242108672818, guid: 769fd5d1be4644fdb95a28184cedadcf, type: 3}
