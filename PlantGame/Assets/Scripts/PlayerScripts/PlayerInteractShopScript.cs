@@ -17,12 +17,13 @@ namespace PlantGame.Player
         private GameObject sign;
 
         ///// METHODS /////
-        
+
+
         void Start()
         {
-            EconomyUI = FindFirstObjectByType<EconomyManager>();
             _playerRigidbody = GetComponent<Rigidbody2D>();
-            
+            EconomyUI = EconomyManager.instance;
+            EconomyUI.closeShop();
         }
 
         void Update(){
@@ -36,6 +37,9 @@ namespace PlantGame.Player
             {
                 if(_isSignNearby)
                 {
+                    if(EconomyUI == null){
+                        EconomyUI = FindFirstObjectByType<EconomyManager>();
+                    }
                     EconomyUI.openShop();
                 }
                 
