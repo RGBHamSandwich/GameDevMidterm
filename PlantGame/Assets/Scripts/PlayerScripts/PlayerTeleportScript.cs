@@ -32,6 +32,8 @@ namespace PlantGame.Player
         ///// DELEGATES /////
         public delegate void OnPlayerTeleport();
         public static OnPlayerTeleport EOnPlayerTeleport;
+        public delegate void OnPlayerArrive();
+        public static OnPlayerArrive EOnPlayerArrive;
 
         ///// COROUTINES /////
         private IEnumerator _teleportCoroutine;
@@ -93,7 +95,7 @@ namespace PlantGame.Player
 
         private IEnumerator TeleportCoroutine(int teleporterID)
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.5f);                  // let the disappear animation play before loading the new scene
             StartCoroutine(LoadSceneCoroutine(teleporterID));
 
             yield return new WaitForSeconds(3f);
@@ -118,6 +120,8 @@ namespace PlantGame.Player
             {
                 Debug.Log("Teleporter ID not recognized");
             }
+
+            EOnPlayerArrive?.Invoke();
 
             yield return null;
 

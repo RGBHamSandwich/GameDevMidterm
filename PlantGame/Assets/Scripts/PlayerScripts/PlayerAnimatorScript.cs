@@ -17,6 +17,7 @@ namespace PlantGame.Player
             PlayerJumpScript.EOnPlayerJump += TriggerJump;
             PlayerInteractPlantScript.EOnPlayerInteractPlant += TriggerPickUp;
             TeleportHomeScript.EOnPlayerTeleport += TriggerTeleport;   
+            TeleportHomeScript.EOnPlayerArrive += TriggerArrive;
         }
 
         void OnDestroy()    
@@ -51,6 +52,11 @@ namespace PlantGame.Player
         private void TriggerTeleport()
         {
             _playerAnimator.SetTrigger("TeleportTrigger");
+        }
+
+        private void TriggerArrive()
+        {
+            _playerAnimator.SetTrigger("ArriveTrigger");
         }
     }
 }
