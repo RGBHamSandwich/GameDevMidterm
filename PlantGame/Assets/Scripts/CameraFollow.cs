@@ -16,20 +16,18 @@ public class CameraFollow : MonoBehaviour
     private enum CameraState { Idle, ZoomingIn, ZoomingOut }
     private CameraState currentState = CameraState.Idle; // Current state of the camera
 
-    // Public variables (visible in the Inspector)
-    [Header("Camera Settings")]
-    public float smoothTime = 2f; // Time for smooth camera transitions
-    public float targetZoom = 0.5f; // Target zoom level for the camera
-    public float zoomVelocity; // Velocity reference for zoom smoothing
+    private float smoothTime = 2f; // Time for smooth camera transitions
+    private float targetZoom = 0.5f; // Target zoom level for the camera
+    private float zoomVelocity=.5f; // Velocity reference for zoom smoothing
 
-    [Header("Plant and Player Settings")]
-    public Vector3 specifiedLocation; // Specific location to check for the plant
-    public GameObject plant; // Reference to the plant object
+    private Vector3 specifiedLocation = new Vector3(23,(float)2.5, 0); // Specific location to check for the plant
+    private GameObject plant; // Reference to the plant object
     public MonoBehaviour playerMovementScript; // Reference to the player's movement script
 
     void Start()
     {
         // Initialize camera target and original position/zoom
+        plant = GameObject.FindGameObjectWithTag("p13");
         cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
         originalPosition = transform.position;
         originalZoom = Camera.main.orthographicSize;
