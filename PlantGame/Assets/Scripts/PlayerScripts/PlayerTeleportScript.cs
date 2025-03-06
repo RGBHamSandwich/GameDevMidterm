@@ -84,18 +84,19 @@ namespace PlantGame.Player
                 {
                     EOnPlayerTeleport?.Invoke();
 
-                    StartCoroutine(TeleportCoroutine());
-                    StartCoroutine(LoadSceneCoroutine(teleporterID));
-
+                    StartCoroutine(TeleportCoroutine(teleporterID));
 
                     _canTeleport = false;
                 }
             }
         }
 
-        private IEnumerator TeleportCoroutine()
+        private IEnumerator TeleportCoroutine(int teleporterID)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(LoadSceneCoroutine(teleporterID));
+
+            yield return new WaitForSeconds(3f);
             _canTeleport = true;   
         }
 
