@@ -39,13 +39,12 @@ public class GreenhousePlant : MonoBehaviour
                 distanceIcon.enabled = false;
                 plantRenderer.enabled = true;
                 IncreasePlayerBalance();
-
+                PlantManager.Instance.EnablePlant(plantID);
+                
                 if (playerScript._plant != null)
                 {
                     Destroy(playerScript._plant);
                     playerScript._hasPlant = false;
-
-                    PlantManager.Instance.EnablePlant(plantID); // Notify PlantManager that this plant is enabled
                 }
             }
         }
@@ -62,10 +61,10 @@ public class GreenhousePlant : MonoBehaviour
             plantRenderer.enabled = false;
         }
 
-        if (distanceIcon != null)
-        {
-            distanceIcon.enabled = false;
-        }
+        //if (distanceIcon != null)
+        //{
+        //    distanceIcon.enabled = false;
+        //}
     }
 
     void IncreasePlayerBalance()
@@ -101,7 +100,6 @@ public class GreenhousePlant : MonoBehaviour
 
     private string GeneratePlantID()
     {
-        // Generate a unique ID based on the plant's name and position
         return $"{gameObject.name}_{transform.position.x}_{transform.position.y}";
     }
 }

@@ -135,13 +135,22 @@ namespace PlantGame.Player
                 0, 
                 teleporterLayer);
 
+            CharacterUI characterUI = FindFirstObjectByType<CharacterUI>();
             if(teleportersNearby.Length > 0)
             {
                 _isTeleporterNearby = true;
+                if (characterUI != null)
+                {
+                    characterUI.DisplayTravelMessage();
+                }
                 return teleportersNearby[0].GetComponent<TeleporterScript1>().teleporterID;      // if this process goofs, nothing happens
             }
             else
             {
+                if (characterUI != null)
+                {
+                    characterUI.HideTextBox();
+                }
                 return -1;
             }
         }

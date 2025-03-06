@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -7576427451642597443, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1223587783, guid: 8b8be873e1eaa4eb5a25b674feb06d11, type: 3}
+      objectReference: {fileID: -1102349544573772993, guid: c18408696d1cded4fbcc94fcae88fa96, type: 3}
     - target: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_Name
       value: Plant6
@@ -19,6 +19,14 @@ PrefabInstance:
     - target: {fileID: 3042358088345170030, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_TagString
       value: p6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067570830538142108, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067570830538142108, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3067570830538142108, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7087386345521541107, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.2
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 7087386345521541107, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.6
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 7395249934276864807, guid: b5ce50ec1d78db1479f3387fa281ad53, type: 3}
       propertyPath: plantPrefab
