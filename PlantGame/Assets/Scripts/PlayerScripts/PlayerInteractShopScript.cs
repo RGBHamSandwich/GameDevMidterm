@@ -66,7 +66,7 @@ namespace PlantGame.Player
             }
             else
             {
-                characterUI.HideTextBox();
+                characterUI?.HideTextBox();
                 _isSignNearby = false;
             }
         }
