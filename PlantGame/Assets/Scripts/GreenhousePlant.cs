@@ -15,6 +15,7 @@ public class GreenhousePlant : MonoBehaviour
     public GameObject plant;
     public SpriteRenderer distanceIcon;
     public GameObject icon;
+    private string plantID;
    
 
     void Start()
@@ -24,6 +25,8 @@ public class GreenhousePlant : MonoBehaviour
         //GameObject plant = GetComponent<GameObject>();
         playerScript = player.GetComponent<PlayerInteractPlantScript>();
         //distanceIcon = GetComponent<SpriteRenderer>();
+        plantID = gameObject.name;
+        RestorePlants();
         disableAllIcons();
     }
 
@@ -48,6 +51,8 @@ public class GreenhousePlant : MonoBehaviour
                 if (playerScript._plant != null){
                     Destroy(playerScript._plant);
                     playerScript._hasPlant = false;
+                    
+                    PlantManager.Instance.enabledPlants.Add(plantID);
                 }
             }
         }
@@ -79,6 +84,18 @@ public class GreenhousePlant : MonoBehaviour
         if (economyManager != null)
         {
             StartCoroutine(economyManager.CountupRoutine(initialBalance,  PlayerMoneyManagerScript.playerBalance));
+        }
+    }
+
+    public void RestorePlants()
+    {
+        if (PlantManager.Instance.IsPlantEnabled(plantID))
+        {
+            plantRenderer.enabled = true;
+        }
+        else
+        {
+            plantRenderer.enabled = false;
         }
     }
 }

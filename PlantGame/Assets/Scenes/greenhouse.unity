@@ -888,6 +888,51 @@ MonoBehaviour:
   zoomVelocity: 0
   plant: {fileID: 0}
   playerMovementScript: {fileID: 0}
+--- !u!1 &543357229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543357231}
+  - component: {fileID: 543357230}
+  m_Layer: 0
+  m_Name: PlantStateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &543357230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543357229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b43108d5a1604a86abb0b6b520e9743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledPlants: []
+--- !u!4 &543357231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543357229}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.596364, y: -8.497101, z: -0.05420394}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &548983667
 GameObject:
   m_ObjectHideFlags: 0
@@ -14319,3 +14364,4 @@ SceneRoots:
   - {fileID: 1773971091}
   - {fileID: 1350223321}
   - {fileID: 1381851187}
+  - {fileID: 543357231}
