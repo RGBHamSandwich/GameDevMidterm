@@ -16,9 +16,10 @@ public class ShopItem{
 
 public class EconomyManager : MonoBehaviour
 {
+    public GameObject BalanceOnScreen;
     public static EconomyManager instance;
     public GameObject ShopUI;
-    public GameObject Balance;
+    public GameObject BalanceInShop;
     public ShopItem[] ItemsForSale;
 
 
@@ -46,6 +47,7 @@ public class EconomyManager : MonoBehaviour
                 i.furniture.SetActive(false);
             }
         }
+        BalanceOnScreen.GetComponent<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString(); 
     }
 
     void Update()
@@ -109,12 +111,30 @@ public class EconomyManager : MonoBehaviour
             elapsedTime += Time.unscaledDeltaTime;
             float t = elapsedTime / 1f;
             current = Mathf.RoundToInt(Mathf.Lerp(start, end, t));
-            Balance.GetComponent<TMPro.TextMeshProUGUI>().text = current.ToString();
+            BalanceInShop.GetComponent<TMPro.TextMeshProUGUI>().text = current.ToString();
             yield return null; 
         }
 
-        Balance.GetComponent<TMPro.TextMeshProUGUI>().text = end.ToString(); 
+        BalanceInShop.GetComponent<TMPro.TextMeshProUGUI>().text = end.ToString(); 
         UpdateShop();
+    }
+
+    public IEnumerator CountupRoutine(int start, int end)
+    {
+        AudioManager.instance.HandleMoney();
+        float elapsedTime = 0f;
+        int current = start;
+
+        while (current < end)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / 1f;
+            current = Mathf.RoundToInt(Mathf.Lerp(start, end, t));
+            BalanceOnScreen.GetComponent<TMPro.TextMeshProUGUI>().text = current.ToString();
+            yield return null; 
+        }
+
+        BalanceOnScreen.GetComponent<TMPro.TextMeshProUGUI>().text = end.ToString(); 
     }
 
     private void PlaceFurniture(ShopItem item){
@@ -122,13 +142,13 @@ public class EconomyManager : MonoBehaviour
     }
 
     private void UpdateShop(){
-        Balance.GetComponent<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
+        BalanceInShop.GetComponent<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
         foreach (ShopItem i in ItemsForSale){
             if (PlayerMoneyManagerScript.playerBalance < i.price){
-                i.furniture.GetComponent<Button>().interactable = false;
+                i.button.GetComponent<Button>().interactable = false;
             }
             if (i.AlreadyPurchased==true){
-                i.furniture.GetComponent<Button>().interactable = false;
+                i.button.GetComponent<Button>().interactable = false;
             }
         }
     }

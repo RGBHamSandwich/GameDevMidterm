@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class PlayerMoneyManagerScript : MonoBehaviour
 {
-    public static int playerBalance = 25;
+    public static int playerBalance = 0;
 }

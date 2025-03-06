@@ -1,5 +1,6 @@
 
 using System;
+using JetBrains.Annotations;
 using PlantGame.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -42,7 +43,8 @@ public class GreenhousePlant : MonoBehaviour
                 distanceIcon.enabled = false;
                 // Debug.Log("Pressing E");
                 plantRenderer.enabled = true;
-                PlayerMoneyManagerScript.playerBalance += 5;
+                IncreasePlayerBalance();
+                
                 if (playerScript._plant != null){
                     Destroy(playerScript._plant);
                     playerScript._hasPlant = false;
@@ -66,4 +68,17 @@ public class GreenhousePlant : MonoBehaviour
         }
     }
     
+    void IncreasePlayerBalance(){
+        int initialBalance = PlayerMoneyManagerScript.playerBalance;
+        PlayerMoneyManagerScript.playerBalance += 5;
+
+        
+        EconomyManager economyManager;
+        economyManager = FindFirstObjectByType<EconomyManager>();
+
+        if (economyManager != null)
+        {
+            StartCoroutine(economyManager.CountupRoutine(initialBalance,  PlayerMoneyManagerScript.playerBalance));
+        }
+    }
 }
