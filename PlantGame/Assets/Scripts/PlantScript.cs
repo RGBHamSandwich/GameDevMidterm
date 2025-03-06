@@ -16,11 +16,22 @@ public class PlantScript : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-            float yPlant = this.transform.position.y;
             float yPlayer = player.transform.position.y;
-            float y = yPlant - yPlayer;
+            float xPlayer = player.transform.position.x;
+
+            float yPlant = this.transform.position.y;
+            // float xPlant = player.transform.position.x
+
+            // bound plant position with player position
+            float y = Mathf.Max(yPlant - yPlayer, yPlayer - 1f);
+            y = Mathf.Min(y, yPlayer + 1f);
+            float x = xPlayer + 0.6f;
+
+            // float yPlant = yPlayer + 0.4f;
+            // float xPlant = xPlayer - 0.6f;
+
             transform.SetParent(player.transform);
-            transform.localPosition = new Vector3(0.5f, y, 0f);
+            transform.localPosition = new Vector3(0.6f, y, 0f);
         }   
     }
 
