@@ -40,7 +40,6 @@ namespace PlantGame.Player
         private IEnumerator _loadSceneCoroutine;
 
         ///// METHODS /////
-
         private void OnDrawGizmosSelected()
         {
             if(teleporterCheckPivot ==  null) 
@@ -61,7 +60,6 @@ namespace PlantGame.Player
             _playerRigidbody = GetComponent<Rigidbody2D>();
 
             DontDestroyOnLoad(this.gameObject);
-
             if(instance != null)
             {
                 Destroy(this.gameObject);
@@ -98,7 +96,7 @@ namespace PlantGame.Player
             yield return new WaitForSeconds(1.5f);                  // let the disappear animation play before loading the new scene
             StartCoroutine(LoadSceneCoroutine(teleporterID));
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(3f);                    // wait a little longer before allowing teleport again
             _canTeleport = true;   
         }
 
@@ -122,9 +120,7 @@ namespace PlantGame.Player
             }
 
             EOnPlayerArrive?.Invoke();
-
             yield return null;
-
         }
 
         private int CheckIfTeleporterNearby()

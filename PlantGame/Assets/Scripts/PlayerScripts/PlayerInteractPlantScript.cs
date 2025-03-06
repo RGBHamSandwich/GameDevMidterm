@@ -43,7 +43,7 @@ namespace PlantGame.Player
         void Start()
         {
             _playerRigidbody = GetComponent<Rigidbody2D>();
-            _playerParticleSystem = GetComponent<ParticleSystem>();          // how do I do this
+            _playerParticleSystem = GetComponent<ParticleSystem>();
 
             if(_currentPlantPrefab != null)
             {
@@ -74,7 +74,6 @@ namespace PlantGame.Player
                     _currentPlantPrefab = _plant;
 
                     _hasPlant = true;
-
                     StartParticles();
                     EOnPlayerInteractPlant?.Invoke();
                 }
@@ -120,7 +119,6 @@ namespace PlantGame.Player
                 _isPlantNearby = true;
                 _plant = _nearbyPlants[0].gameObject;
             }
-            
             else
             {
                 _isPlantNearby = false;
