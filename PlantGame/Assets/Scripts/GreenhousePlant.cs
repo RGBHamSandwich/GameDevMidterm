@@ -1,4 +1,3 @@
-
 using System;
 using JetBrains.Annotations;
 using PlantGame.Player;
@@ -7,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class GreenhousePlant : MonoBehaviour
 {
-    //private bool _hasPlant;
     private PlayerInteractPlantScript _plant;
     private GameObject player;
     private PlayerInteractPlantScript playerScript;
@@ -16,74 +14,71 @@ public class GreenhousePlant : MonoBehaviour
     public SpriteRenderer distanceIcon;
     public GameObject icon;
     private string plantID;
-   
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        //plantRenderer = GetComponent<SpriteRenderer>();
-        //GameObject plant = GetComponent<GameObject>();
         playerScript = player.GetComponent<PlayerInteractPlantScript>();
-        //distanceIcon = GetComponent<SpriteRenderer>();
-        plantID = gameObject.name;
-        RestorePlants();
-        disableAllIcons();
+        plantID = GeneratePlantID(); // Generate a unique ID for the plant
+        DisableAllIcons();
     }
 
     void Update()
     {
-        placePlant();
+        PlacePlant();
     }
 
-    void placePlant(){
-
-        //float distancetoPlant = Vector2.Distance(player.transform.position, plant.transform.position);
+    void PlacePlant()
+    {
         float distancetoIcon = Vector2.Distance(player.transform.position, icon.transform.position);
-        // Debug.Log("hasPlant is: " + playerScript._hasPlant);
-        if (distancetoIcon <= 1.5f){
+        if (distancetoIcon <= 1.5f)
+        {
             distanceIcon.enabled = true;
-            if (playerScript._hasPlant && Input.GetKeyDown(KeyCode.E)){
+            if (playerScript._hasPlant && Input.GetKeyDown(KeyCode.E))
+            {
                 distanceIcon.enabled = false;
-                // Debug.Log("Pressing E");
                 plantRenderer.enabled = true;
                 IncreasePlayerBalance();
-                
-                if (playerScript._plant != null){
+
+                if (playerScript._plant != null)
+                {
                     Destroy(playerScript._plant);
                     playerScript._hasPlant = false;
-                    
-                    PlantManager.Instance.enabledPlants.Add(plantID);
+
+                    PlantManager.Instance.EnablePlant(plantID); // Notify PlantManager that this plant is enabled
                 }
             }
         }
-        else {
+        else
+        {
             distanceIcon.enabled = false;
         }
-        
     }
 
-    void disableAllIcons(){
-        
-        if (plantRenderer != null){
+    void DisableAllIcons()
+    {
+        if (plantRenderer != null)
+        {
             plantRenderer.enabled = false;
         }
 
-        if (distanceIcon != null){
+        if (distanceIcon != null)
+        {
             distanceIcon.enabled = false;
         }
     }
-    
-    void IncreasePlayerBalance(){
+
+    void IncreasePlayerBalance()
+    {
         int initialBalance = PlayerMoneyManagerScript.playerBalance;
         PlayerMoneyManagerScript.playerBalance += 5;
 
-        
         EconomyManager economyManager;
         economyManager = FindFirstObjectByType<EconomyManager>();
 
         if (economyManager != null)
         {
-            StartCoroutine(economyManager.CountupRoutine(initialBalance,  PlayerMoneyManagerScript.playerBalance));
+            StartCoroutine(economyManager.CountupRoutine(initialBalance, PlayerMoneyManagerScript.playerBalance));
         }
     }
 
@@ -97,5 +92,16 @@ public class GreenhousePlant : MonoBehaviour
         {
             plantRenderer.enabled = false;
         }
+    }
+
+    public string GetPlantID()
+    {
+        return plantID;
+    }
+
+    private string GeneratePlantID()
+    {
+        // Generate a unique ID based on the plant's name and position
+        return $"{gameObject.name}_{transform.position.x}_{transform.position.y}";
     }
 }

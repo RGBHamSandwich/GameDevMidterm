@@ -23,6 +23,15 @@ public class PlantManager : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        // Unsubscribe from the sceneLoaded event to avoid memory leaks
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Restore all enabled plants when the scene is loaded
@@ -31,11 +40,15 @@ public class PlantManager : MonoBehaviour
 
     void RestorePlants()
     {
-        // Find all GreenhousePlant objects in the scene and restore their states
-        GreenhousePlant[] plants = FindObjectsOfType<GreenhousePlant>();
+        // Use FindObjectsByType to get all plants in the scene
+        GreenhousePlant[] plants = FindObjectsByType<GreenhousePlant>(FindObjectsSortMode.None);
         foreach (var plant in plants)
         {
-            plant.RestorePlants();
+            // Check if the plant should be enabled based on the enabledPlants list
+            if (enabledPlants.Contains(plant.GetPlantID()))
+            {
+                plant.EnablePlant();
+            }
         }
     }
 
