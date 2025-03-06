@@ -95,7 +95,6 @@ namespace PlantGame.Player
                     StopParticles();
                     _hasPlant = false;
 
-                    Debug.Log("No greenhouse nearby; putting plant on ground"); 
             }
         }
 
@@ -129,12 +128,10 @@ namespace PlantGame.Player
         {
             _playerParticleSystem.Play();
             _playerParticleSystem.enableEmission = true;
-            Debug.Log("Starting particles");
         }
         public void StopParticles()
         {
             _playerParticleSystem.enableEmission = false;
-            Debug.Log("Stopping particles");
         }
     }
 }

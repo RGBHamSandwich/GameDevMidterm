@@ -104,7 +104,6 @@ public class GreenhousePlant : MonoBehaviour
 
     public void EnablePlant()
     {
-        Debug.Log($"Enabling plant visually: {plantID}");
         if (plantRenderer != null)
         {
             plantRenderer.enabled = true;

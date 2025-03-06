@@ -44,7 +44,6 @@ namespace PlantGame.Player
         {
             if(teleporterCheckPivot ==  null) 
             {
-                Debug.Log("null teleporterCheckPivot");
                 return;
             }
 
@@ -114,11 +113,6 @@ namespace PlantGame.Player
                 SceneManager.LoadScene(ForestSceneName, LoadSceneMode.Single);
                 this.transform.position = ForestTargetPosition;
             }
-            else
-            {
-                Debug.Log("Teleporter ID not recognized");
-            }
-
             EOnPlayerArrive?.Invoke();
             yield return null;
         }
