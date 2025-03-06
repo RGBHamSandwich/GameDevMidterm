@@ -102,4 +102,13 @@ public class GreenhousePlant : MonoBehaviour
     {
         return $"{gameObject.name}_{transform.position.x}_{transform.position.y}";
     }
+
+    public void EnablePlant()
+{
+    Debug.Log($"Enabling plant visually: {plantID}");
+    if (plantRenderer != null)
+    {
+        plantRenderer.enabled = true;
+    }
+}
 }

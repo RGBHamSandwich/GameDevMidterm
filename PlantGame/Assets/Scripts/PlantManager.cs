@@ -9,48 +9,52 @@ public class PlantManager : MonoBehaviour
     public List<string> enabledPlants = new List<string>();
 
     void Awake()
+{
+    Debug.Log($"Enabled Plants: {string.Join(", ", enabledPlants)}");
+    if (Instance == null)
     {
-        Debug.Log($"Enabled Plants: {string.Join(", ", enabledPlants)}");
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
     }
-
-    void OnDestroy()
+    else
     {
-        // Unsubscribe from the sceneLoaded event to avoid memory leaks
-        if (Instance == this)
-        {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
+        Debug.LogWarning("Duplicate PlantManager detected. Destroying the duplicate.");
+        Destroy(gameObject); // Destroy the duplicate
+        return; // Exit to avoid further execution
     }
+}
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+{
+    Debug.Log($"Scene loaded: {scene.name}. Restoring plants...");
+    Debug.Log($"Enabled Plants: {string.Join(", ", enabledPlants)}");
+    RestorePlants();
+}
+
+void OnDestroy()
+{
+    Debug.Log("PlantManager is being destroyed.");
+    if (Instance == this)
     {
-        // Restore all enabled plants when the scene is loaded
-        RestorePlants();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+}
 
     void RestorePlants()
+{
+    Debug.Log("Restoring plants...");
+    GreenhousePlant[] plants = FindObjectsByType<GreenhousePlant>(FindObjectsSortMode.None);
+    foreach (var plant in plants)
     {
-        // Use FindObjectsByType to get all plants in the scene
-        GreenhousePlant[] plants = FindObjectsByType<GreenhousePlant>(FindObjectsSortMode.None);
-        foreach (var plant in plants)
+        Debug.Log($"Checking plant: {plant.GetPlantID()}");
+        if (enabledPlants.Contains(plant.GetPlantID()))
         {
-            // Check if the plant should be enabled based on the enabledPlants list
-            if (enabledPlants.Contains(plant.GetPlantID()))
-            {
-                plant.EnablePlant();
-            }
+            Debug.Log($"Enabling plant: {plant.GetPlantID()}");
+            plant.EnablePlant();
         }
     }
+}
 
     public void EnablePlant(string plantID)
     {
@@ -58,6 +62,10 @@ public class PlantManager : MonoBehaviour
         {
             enabledPlants.Add(plantID);
             Debug.Log($"Plant {plantID} enabled.");
+            foreach (var item in enabledPlants)
+            {
+                Debug.Log(item.ToString());
+            }
         }
     }
 
@@ -66,7 +74,6 @@ public class PlantManager : MonoBehaviour
         return enabledPlants.Contains(plantID);
     }
 
-    // Clear all enabled plants (optional, for resetting the state)
     public void ClearEnabledPlants()
     {
         enabledPlants.Clear();
