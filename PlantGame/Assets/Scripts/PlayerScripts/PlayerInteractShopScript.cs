@@ -54,14 +54,19 @@ namespace PlantGame.Player
             Collider2D[] _nearbySigns = Physics2D.OverlapBoxAll(
                 signCheckPivot.position, Vector3.one * signCheckSize, 0, signLayer
                 );
-            
+            CharacterUI characterUI = FindFirstObjectByType<CharacterUI>();
             if(_nearbySigns.Length > 0)
             {
+                if (characterUI != null)
+                {
+                    characterUI.DisplayShopMessage();
+                }
                 _isSignNearby = true;
                 sign = _nearbySigns[0].gameObject;
             }
             else
             {
+                characterUI.HideTextBox();
                 _isSignNearby = false;
             }
         }

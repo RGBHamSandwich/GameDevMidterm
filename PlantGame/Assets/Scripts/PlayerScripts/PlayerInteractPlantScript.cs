@@ -81,6 +81,13 @@ namespace PlantGame.Player
             }
             else if((Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightControl)) && _hasPlant && _canInteractPlant)
             {
+                if(_isPlantNearby){
+                    CharacterUI characterUI = FindFirstObjectByType<CharacterUI>();
+                    if (characterUI != null)
+                    {
+                        characterUI.DisplayHandsFullMessage();
+                    }
+                }
                 bool teleporterNearby = GetComponent<TeleportHomeScript>()._isTeleporterNearby;
                 if (teleporterNearby) return;
                 // if (greenhouse space is nearby) 
