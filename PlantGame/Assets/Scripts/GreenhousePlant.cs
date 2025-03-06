@@ -35,12 +35,12 @@ public class GreenhousePlant : MonoBehaviour
 
         //float distancetoPlant = Vector2.Distance(player.transform.position, plant.transform.position);
         float distancetoIcon = Vector2.Distance(player.transform.position, icon.transform.position);
-        Debug.Log("hasPlant is: " + playerScript._hasPlant);
+        // Debug.Log("hasPlant is: " + playerScript._hasPlant);
         if (distancetoIcon <= 1.5f){
             distanceIcon.enabled = true;
             if (playerScript._hasPlant && Input.GetKeyDown(KeyCode.E)){
                 distanceIcon.enabled = false;
-                Debug.Log("Pressing E");
+                // Debug.Log("Pressing E");
                 plantRenderer.enabled = true;
                 PlayerMoneyManagerScript.playerBalance += 5;
                 if (playerScript._plant != null){

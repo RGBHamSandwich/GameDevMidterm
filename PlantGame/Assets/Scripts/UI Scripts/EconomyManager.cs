@@ -8,8 +8,10 @@ using UnityEditor.Experimental.GraphView;
 [System.Serializable]
 public class ShopItem{
     public GameObject furniture;
+    public GameObject button;
     public int price;
     public String name;
+    public bool AlreadyPurchased = false;
 }
 
 public class EconomyManager : MonoBehaviour
@@ -39,7 +41,7 @@ public class EconomyManager : MonoBehaviour
         Time.timeScale = 1;
         ShopUI.SetActive(false);
         foreach (ShopItem i in ItemsForSale){
-           if (i.furniture != null)
+           if (i.furniture != null && i.AlreadyPurchased == false)
             {
                 i.furniture.SetActive(false);
             }
@@ -87,6 +89,7 @@ public class EconomyManager : MonoBehaviour
                 if (initialBalance >= price){
                     PlayerMoneyManagerScript.playerBalance -= price;
                     PlaceFurniture(itemToBuy);
+                    i.AlreadyPurchased = true;
                 }
                 break;
             }
@@ -122,6 +125,9 @@ public class EconomyManager : MonoBehaviour
         Balance.GetComponent<TMPro.TextMeshProUGUI>().text = PlayerMoneyManagerScript.playerBalance.ToString();
         foreach (ShopItem i in ItemsForSale){
             if (PlayerMoneyManagerScript.playerBalance < i.price){
+                i.furniture.GetComponent<Button>().interactable = false;
+            }
+            if (i.AlreadyPurchased==true){
                 i.furniture.GetComponent<Button>().interactable = false;
             }
         }

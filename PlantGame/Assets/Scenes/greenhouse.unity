@@ -7329,21 +7329,27 @@ MonoBehaviour:
   - furniture: {fileID: 960086412}
     price: 7
     name: bench
+    AlreadyPurchased: 0
   - furniture: {fileID: 48202791}
     price: 7
     name: bench
+    AlreadyPurchased: 0
   - furniture: {fileID: 1217381133}
     price: 5
     name: table
+    AlreadyPurchased: 0
   - furniture: {fileID: 429703871}
     price: 3
     name: couch
+    AlreadyPurchased: 0
   - furniture: {fileID: 733940330}
     price: 10
     name: trellis
+    AlreadyPurchased: 0
   - furniture: {fileID: 906440141}
     price: 10
     name: trellis
+    AlreadyPurchased: 0
 --- !u!224 &1350223321
 RectTransform:
   m_ObjectHideFlags: 0
