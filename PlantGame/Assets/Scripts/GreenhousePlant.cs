@@ -100,7 +100,7 @@ public class GreenhousePlant : MonoBehaviour
 
     private string GeneratePlantID()
     {
-        return $"{gameObject.name}_{transform.position.x}_{transform.position.y}";
+        return $"{gameObject.name}";
     }
 
     public void EnablePlant()
