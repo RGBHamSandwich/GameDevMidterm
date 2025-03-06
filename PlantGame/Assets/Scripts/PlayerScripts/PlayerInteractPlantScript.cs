@@ -12,9 +12,9 @@ namespace PlantGame.Player
         [SerializeField] private Transform plantCheckPivot;
         [SerializeField] private float plantCheckSize = 1.5f;
         [SerializeField] private LayerMask plantLayer;
+        public bool _hasPlant = false;
 
         ///// PRIVATE VARIRABLES  /////
-        public bool _hasPlant = false;
         private Rigidbody2D _playerRigidbody;
         private bool _isPlantNearby = false;
         private bool _canInteractPlant = true;
