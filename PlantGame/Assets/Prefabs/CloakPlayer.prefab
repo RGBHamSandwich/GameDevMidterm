@@ -245,10 +245,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateOfInteract: 3
   plantCheckPivot: {fileID: 6739969125075034845}
-  plantCheckSize: 0.9
+  plantCheckSize: 1
   plantLayer:
     serializedVersion: 2
     m_Bits: 256
+  _hasPlant: 0
+  _plant: {fileID: 0}
 --- !u!114 &4965306359749979685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05be37bb61bdfd3438b254dcc8133e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  economyManagerPrefab: {fileID: 7662882232925797913, guid: 8ed464ca854584366843006df7ca383b, type: 3}
   teleporterCheckPivot: {fileID: 7267456748173999915}
   teleporterCheckSize: 2
   teleporterLayer:
