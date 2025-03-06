@@ -45,6 +45,9 @@ public class GreenhousePlant : MonoBehaviour
                 {
                     Destroy(playerScript._plant);
                     playerScript._hasPlant = false;
+
+                    // stopping the leaf-dropping particle system on the player 
+                    playerScript.StopParticles();
                 }
             }
         }
