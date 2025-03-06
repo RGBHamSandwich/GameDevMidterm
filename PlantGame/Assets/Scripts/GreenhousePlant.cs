@@ -31,7 +31,7 @@ public class GreenhousePlant : MonoBehaviour
     void PlacePlant()
     {
         float distancetoIcon = Vector2.Distance(player.transform.position, icon.transform.position);
-        if (distancetoIcon <= 1.5f)
+        if (distancetoIcon <= 2f)
         {
             distanceIcon.enabled = true;
             if (playerScript._hasPlant && Input.GetKeyDown(KeyCode.E))
@@ -64,10 +64,6 @@ public class GreenhousePlant : MonoBehaviour
             plantRenderer.enabled = false;
         }
 
-        //if (distanceIcon != null)
-        //{
-        //    distanceIcon.enabled = false;
-        //}
     }
 
     void IncreasePlayerBalance()
@@ -107,11 +103,11 @@ public class GreenhousePlant : MonoBehaviour
     }
 
     public void EnablePlant()
-{
-    Debug.Log($"Enabling plant visually: {plantID}");
-    if (plantRenderer != null)
     {
-        plantRenderer.enabled = true;
+        Debug.Log($"Enabling plant visually: {plantID}");
+        if (plantRenderer != null)
+        {
+            plantRenderer.enabled = true;
+        }
     }
-}
 }

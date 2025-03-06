@@ -57,10 +57,7 @@ namespace PlantGame.Player
             CharacterUI characterUI = FindFirstObjectByType<CharacterUI>();
             if(_nearbySigns.Length > 0)
             {
-                if (characterUI != null)
-                {
-                    characterUI.DisplayShopMessage();
-                }
+                characterUI?.DisplayShopMessage();
                 _isSignNearby = true;
                 sign = _nearbySigns[0].gameObject;
             }
